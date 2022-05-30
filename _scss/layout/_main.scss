@@ -1,0 +1,1052 @@
+@charset "UTF-8";
+
+/* ------------- 指定コードのスタイル設定用 ------------- */
+.code-mark0 {
+	font-weight: bold;
+	//color: #11ca11;
+	color: red;
+}
+
+.code-mark1 {
+	font-weight: bold;
+	color: #686bef;
+}
+
+.code-mark2 {
+	font-weight: bold;
+	color: #ffe200;
+}
+
+ul li>dl dt+dd {
+	margin-top: 0;
+}
+
+/* -------------------------------------------------- */
+body,
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	letter-spacing: 0.02rem;
+}
+
+main {
+	padding: 0;
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 10px auto;
+	width: 100%;
+}
+
+/* ====================================
+フッター
+======================================*/
+#footer {
+	flex-shrink: 0;
+}
+
+/* ====================================
+基本
+======================================*/
+a {
+	text-decoration: underline;
+}
+
+/* ====================================
+編集画面
+======================================*/
+#update.container {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+#update #report-markdown {
+	display: block;
+	flex: 1 0 auto;
+	font-size: 1rem;
+	max-height: 650px;
+}
+
+#update #upload {
+	display: block;
+	width: 30px;
+	align-self: flex-end;
+}
+
+#update .btn-upload {
+	font-size: 100%;
+	font-weight: bold;
+	min-width: 120px;
+	margin-top: 20px;
+	padding: 7px 10px;
+	background-color: #248;
+	color: #fff;
+	border-style: none;
+	cursor: pointer;
+}
+
+
+.btn-edit {
+	font-size: 1.1rem;
+	margin-left: auto;
+	cursor: pointer;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	height: 36px;
+	line-height: 18px;
+	border: 1px solid rgb(118, 118, 118);
+}
+
+
+/** 編集ボタン(テキストエリア拡大時)**/
+.screen-full #upload {
+	position: fixed;
+	top: 82px;
+	right: 28px;
+	z-index: 10;
+	min-width: 90px;
+}
+
+/** プレビューボタン(テキストエリア拡大時)**/
+.screen-full #btn-preview {
+	position: fixed;
+	top: 56px;
+	right: 27px;
+	z-index: 10;
+}
+
+#update textarea {
+	font-size: 0.9rem;
+	width: 100%;
+	height: 20rem;
+}
+
+/*編集ボタン*/
+form#edit-form {
+	position: fixed;
+	right: 5px;
+	top: 2px;
+	z-index: 10;
+}
+
+legend {
+	font-size: 1rem;
+	margin-bottom: 0.2rem;
+}
+
+/** プレビューボタン **/
+.btn-preview {
+	border: 1px solid #a09595;
+}
+
+.btn-preview:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+/*ページに戻るボタン*/
+.btn-return,
+.btn-load {
+	text-decoration: none;
+	padding: 0.4em 0.5em;
+	color: #000;
+	border: 1px solid #aaa;
+	background: #e8e8e8;
+	font-size: 0.8rem;
+	cursor: pointer;
+	text-align: center;
+	display: inline-block;
+	width: 100px;
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	z-index: 10;
+}
+
+/*ツールバー*/
+.editor-toolbar {
+	border-top: 1px solid #afa5a5 !important;
+	border-left: 1px solid #afa5a5 !important;
+	border-right: 1px solid #afa5a5 !important;
+}
+
+/*テキストエリア*/
+.CodeMirror {
+	border: 1px solid #afa5a5 !important;
+}
+
+.CodeMirror.CodeMirror-wrap {
+	height: 650px;
+}
+
+/* ====================================
+マークダウン
+======================================*/
+
+/* ====================================
+検索ボックス
+======================================*/
+.keyword {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0.2rem;
+}
+
+.keyword input[type=text] {
+	font-size: 0.9rem;
+}
+
+.btn-search {
+	font-size: 0.9rem;
+	padding: 0.1rem 0.2rem;
+}
+
+/****** ページ内検索 ******/
+fieldset.type-check {
+	padding: 0.2rem;
+}
+
+.page-keyword {
+	position: fixed;
+	right: 60px;
+	top: 5px;
+	z-index: 10;
+}
+
+input#search-before,
+input#search-next {
+	font-size: 1rem;
+	cursor: pointer;
+	border: 1px solid rgb(118, 118, 118);
+}
+
+input#search-before:hover,
+input#search-next:hover {
+	background-color: #0062cc;
+	color: #fff;
+	border: 1px solid #0062cc;
+}
+
+.search-text {
+	overflow: auto !important;
+	height: 175px;
+}
+
+
+
+/* ====================================
+プリビュー用
+======================================*/
+main.preview #sidebar p {
+	color: #fff;
+	font-size: 2rem;
+	margin-left: 2rem;
+}
+
+/* ====================================
+テキスト・ボックス
+======================================*/
+.text-red,
+.red {
+	color: red;
+}
+
+/*太字の赤文字「***〇〇***」*/
+strong strong {
+	font-weight: bold;
+	color: red;
+}
+
+.text-blue,
+.blue {
+	color: blue;
+}
+
+.text-green,
+.green {
+	color: green;
+}
+
+.text-purple,
+.purple {
+	color: purple;
+}
+
+.parts-right {
+	text-align: right;
+}
+
+.parts-center {
+	text-align: center;
+}
+
+/*太字*/
+.text-bold,
+.bold {
+	font-weight: bold;
+}
+
+/*折り返し*/
+pre.pre-wrap {
+	white-space: pre-wrap;
+}
+
+@mixin boxFree {
+	border: 1px solid #d39e00;
+	padding: 1.8rem 0.5rem 1rem 1rem;
+	margin: 2.5rem 0 1.5rem;
+	background-color: bisque;
+	position: relative;
+
+	&::before {
+		content: "MEMO";
+		top: 0;
+		left: 0;
+		display: inline-block;
+		border-bottom: 1px solid gray;
+		border-right: 1px solid gray;
+		padding: 0.1rem 0.3rem;
+		position: absolute;
+		background-color: #f7c739;
+		font-size: 0.85rem;
+		font-weight: bold;
+		font-style: italic;
+	}
+
+	h4,h5 {
+		margin-top: 10px;
+		margin-bottom: 10px
+	}
+}
+
+
+/** メモボックス **/
+.memo-box {
+	@include boxFree();
+	margin: 0.5rem 0 1.5rem;
+
+	&::before {
+		content: "MEMO";
+	}
+}
+
+
+/** Columnボックス **/
+.column-box {
+	@include boxFree();
+
+	border: 1px solid green;
+	background-color: #dee7e0;
+
+	&::before {
+		content: "Column";
+		background-color: #7dcf7d;
+	}
+}
+
+
+/*** グレーボックス ***/
+.gray-box {
+	border: 1px solid rgb(146, 146, 146);
+	background-color: rgb(231, 231, 231);
+	padding: 0.5rem;
+	margin: 1rem 0 1.5rem;
+}
+
+/*** 緑ボックス ***/
+.green-box {
+	border: 1px solid green;
+	background-color: rgb(218, 236, 236);
+	padding: 1rem 0.5rem 1rem 0;
+	margin: 1rem 0 1.5rem;
+}
+
+.green-box ul,
+.green-box ol {
+	margin-bottom: 0;
+}
+
+.green-box ul {
+	padding-left: 1.5rem;
+}
+
+.green-box ul li,
+.green-box ol li {
+	list-style: none;
+	position: relative;
+	padding-left: 1.5rem;
+}
+
+.green-box ul li:before {
+	font-family: "ForkAwesome";
+	content: "\f111";
+	display: block;
+	position: absolute;
+	left: 2px;
+	top: 1px;
+	transform: scale(0.5);
+	color: green;
+	background: none !important;
+}
+
+/* チェックマーク */
+.green-box.check-list ul li:before {
+	content: "\f00c";
+	transform: scale(0.9);
+}
+
+/* チェックマーク2 */
+.green-box.check-list2 ul li:before {
+	content: "\f138";
+	transform: scale(0.9);
+}
+
+/* 数字 */
+.green-box ol {
+	padding-left: 1.5rem;
+}
+
+.green-box ol li {
+	list-style-type: none;
+	list-style-position: inside;
+	counter-increment: cnt;
+	padding-left: 1.5rem;
+}
+
+.green-box ol li::before {
+	display: block;
+	position: absolute;
+	left: 2px;
+	top: 0;
+	content: counter(cnt) ".";
+	transform: scale(1.2) skewX(-7deg);
+	color: green;
+	font-weight: bold;
+	background: none !important;
+}
+
+/*表示・非表示*/
+.d-block {
+	display: block !important;
+}
+
+.d-none {
+	display: none !important;
+}
+
+.d-inline-block {
+	display: inline-block !important;
+}
+
+strong em,
+mark {
+	background: linear-gradient(transparent 60%, #fff353 0%);
+	padding: 0;
+	color: inherit;
+	font-weight: initial;
+}
+
+.s-select {
+	background: linear-gradient(transparent 60%, orange 0%);
+	color: inherit;
+	font-weight: initial;
+}
+
+h2 mark {
+	background: linear-gradient(transparent 87%, #fff353 0%);
+}
+
+h3 mark {
+	background: linear-gradient(transparent 75%, #fff353 0%);
+}
+
+h2 .s-select {
+	background: linear-gradient(transparent 87%, orange 0%);
+}
+
+h3 .s-select {
+	background: linear-gradient(transparent 75%, orange 0%);
+}
+
+/* ====================================
+トップへ戻る パーツページ用
+======================================*/
+#parts-pagetop {
+	position: fixed;
+	bottom: 7px;
+	right: 10px;
+	font-size: 0.8rem;
+	z-index: 10000;
+}
+
+#parts-pagetop a {
+	background: rgba(35, 100, 172, 0.7215686275);
+	opacity: 0.8;
+	text-decoration: none;
+	color: #fff;
+	width: 50px;
+	height: 50px;
+	line-height: 90px;
+	font-size: 0.75rem;
+	text-align: center;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+#parts-pagetop a::before {
+	width: 15px;
+	height: 15px;
+	border-left: 2px solid #fff;
+	border-top: 2px solid #fff;
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 23px;
+	transform: rotate(45deg);
+}
+
+#parts-pagetop a span.icon-top:after {
+	position: absolute;
+	content: "TOP";
+	right: 17px;
+	height: 100%;
+}
+
+#parts-pagetop a:hover,
+#parts-pagetop a:focus {
+	opacity: 1;
+	background: #024186;
+}
+
+/*トップへ戻る(ここまで)*/
+/*隠しテキスト*/
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/** 水平線 **/
+hr.parts-hr {
+	margin-top: 1rem;
+	margin-bottom: 3rem;
+	border: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ====================================
+リスト
+======================================*/
+ol.parts-list,
+ul.parts-list {
+	margin: 0.5rem 0 1.5rem;
+}
+
+ol.parts-list {
+	/*padding-inline-start: 40px;*/
+	padding-inline-start: 20px;
+}
+
+ol.parts-list li {
+	list-style-type: decimal;
+}
+
+ul.parts-list {
+	padding-inline-start: 0;
+}
+
+ul.parts-list li {
+	list-style-type: disc;
+}
+
+.list-none>ul,
+.list-none>ol,
+ul.list-none,
+ol.list-none {
+	list-style-type: none;
+	padding: 0;
+}
+
+/*注釈*/
+.list-notes dl {
+	margin: 1rem 0;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 0.9rem;
+}
+
+.list-notes dl dt {
+	width: 2.5rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	color: green;
+}
+
+.list-notes dl dd {
+	width: calc(100% - 3rem);
+	margin-left: 0;
+	margin-bottom: 1rem;
+}
+
+/* ====================================
+調整
+======================================*/
+.parts-mb0 {
+	margin-bottom: 0 !important;
+}
+
+
+/* ====================================
+ファイル登録ボックス
+======================================*/
+#DnDBox {
+	padding: 35px 50px;
+	text-align: center;
+	font-size: 1.5em;
+	border: 2px dotted #0b85a1;
+	width: 100%;
+	display: inline-block;
+	margin: 0 auto 0.5rem;
+}
+
+#waitingList {
+	margin-top: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+}
+
+#waitingList li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	border-bottom: 1px solid #a9ccd1;
+	/*width: 700px;*/
+	margin-left: 5px;
+	margin-right: 5px;
+	width: calc(50% - 20px);
+	padding: 10px 10px 7px 10px;
+	vertical-align: top;
+}
+
+#waitingList li:first-child,
+#waitingList li:nth-child(2) {
+	border-top: 1px solid #a9ccd1;
+}
+
+#waitingList li:nth-child(2n+1) {
+	margin-right: 10px;
+}
+
+#waitingList li:nth-child(2n) {
+	margin-left: 10px;
+}
+
+#waitingList li span.filename {
+	display: inline-block;
+	vertical-align: top;
+	/*min-width: 350px;*/
+}
+
+button.fileDelete {
+	display: inline-block;
+	background: #d60101;
+	color: #fff;
+	font-size: 0.8rem;
+	padding: 3px 5px;
+	border: 1px solid #aaa;
+	cursor: pointer;
+	margin-left: auto;
+}
+
+button.fileInsert {
+	margin-left: 0.5rem;
+	background: #24d;
+	color: #fff;
+	font-size: 0.8rem;
+	padding: 3px 5px;
+	border: 1px solid #aaa;
+	cursor: pointer;
+}
+
+/* ====================================
+ファイルアイコン、画像サムネイル表示
+======================================*/
+/** CSSでアイコン自動設置 **/
+a[href$=".xls"],
+a[href$=".xlsx"],
+a[href$=".txt"],
+a[href$=".zip"],
+a[href$=".docx"],
+a[href$=".pptx"],
+a[href$=".pdf"],
+a[href$=".one"],
+a[href^="file:"],
+.excel-icon,
+.text-icon,
+.zip-icon,
+.word-icon,
+.pptx-icon,
+.pdf-icon,
+.one-icon,
+.folder-icon {
+	position: relative;
+	padding-right: 22px;
+}
+
+a[href$=".xls"]:after,
+a[href$=".xlsx"]:after,
+.excel-icon:after,
+a[href$=".txt"]:after,
+.text-icon:after,
+a[href$=".zip"]:after,
+.zip-icon:after,
+a[href$=".docx"]:after,
+.word-icon:after,
+a[href$=".pptx"]:after,
+.pptx-icon:after,
+a[href$=".pdf"]:after,
+.pdf-icon:after,
+a[href$=".one"]:after,
+.one-icon:after,
+a[href^="file:"]:after,
+.folder-icon:after {
+	content: "";
+	font-size: 0;
+	height: 20px;
+	width: 20px;
+	margin-left: 4px;
+	position: absolute;
+	bottom: 1px;
+	background-size: contain;
+}
+
+/** エクセル **/
+a[href$=".xls"]:after,
+a[href$=".xlsx"]:after,
+.excel-icon:after {
+	width: 16px;
+	background-image: url(../images/icon-excel.svg);
+	background-repeat: no-repeat;
+}
+
+/** テキスト **/
+a[href$=".txt"]:after,
+.text-icon:after {
+	background-image: url(../images/icon-text.svg);
+	background-repeat: no-repeat;
+}
+
+/** zip **/
+a[href$=".zip"]:after,
+.zip-icon:after {
+	background-image: url(../images/icon-zip.svg);
+	background-repeat: no-repeat;
+}
+
+/** ワード **/
+a[href$=".docx"]:after,
+.word-icon:after {
+	background-image: url(../images/icon-word.svg);
+	background-repeat: no-repeat;
+}
+
+/** パワーポイント **/
+a[href$=".pptx"]:after,
+.pptx-icon:after {
+	background-image: url(../images/icon-pptx.svg);
+	background-repeat: no-repeat;
+}
+
+/** PDF **/
+a[href$=".pdf"]:after,
+.pdf-icon:after {
+	background-image: url(../images/icon-pdf.svg);
+	background-repeat: no-repeat;
+}
+
+/** フォルダ **/
+a[href^="file:"]:after,
+.folder-icon:after {
+	background-image: url(../images/icon-folder.svg);
+	background-repeat: no-repeat;
+}
+
+/** onenote **/
+a[href$=".one"]:after,
+.one-icon:after {
+	background-image: url(../images/icon-one.png);
+	background-repeat: no-repeat;
+}
+
+/** クラスでアイコン設置 **/
+.file_icon {
+	display: inline-block;
+	padding-right: 23px;
+	position: relative;
+}
+
+.file_icon::after {
+	content: "";
+	font-size: 0;
+	height: 20px;
+	width: 20px;
+	margin-left: 4px;
+	position: absolute;
+	bottom: 3px;
+}
+
+/*新規ウィンドウアイコン*/
+.file_icon.newtab-icon {
+	padding-right: 22px;
+}
+
+.file_icon.newtab-icon::after {
+	background: url(../images/icon-newtab.svg) no-repeat;
+	background-size: auto 100%;
+	height: 15px;
+	width: 15px;
+	margin-left: 3px;
+	bottom: 3px;
+}
+
+/** 画像サムネイル **/
+.photo-list img {
+	max-width: 100px;
+	margin-left: 8px;
+	max-height: 60px;
+}
+
+/* ====================================
+メディアクエリー
+======================================*/
+@media only screen and (max-width: 991px) {
+
+	/*サイドメニューを隠す*/
+	#sidebar {
+		/*margin-left: -250px;*/
+		z-index: 10;
+	}
+
+	#body {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	/*#sidebar {
+  	display: none;
+  }
+  .menu-open #sidebar {
+  	display: block;
+  	margin-left: 0!important;
+  }*/
+}
+
+@media only screen and (max-width: 767px) {
+	#waitingList li {
+		margin-left: 0px;
+		margin-right: 0px;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 575px) {
+	.text-markdown p:first-of-type a {
+		max-width: calc(50% - 0.3rem);
+		flex-basis: calc(50% - 0.3rem);
+	}
+}
+
+/* ====================================
+メニュー開閉
+======================================*/
+/* サイドメニュー */
+/*nav {
+	width: 200px;
+	height: 100%;
+	padding-top: 100px;
+	background-color: #000;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	transform: translate(-250px);
+	transition: all .5s;
+}*/
+nav ul {
+	list-style: none;
+}
+
+nav li {
+	color: #fff;
+	text-align: center;
+}
+
+#sidebar ul li.cate-active>a.toggle+ul,
+#sidebar ul li a.toggle.open+ul {
+	display: block;
+}
+
+@media only screen and (max-width: 991px) {
+	#sidebar {
+		left: -250px;
+		transform: translate(0);
+	}
+
+	nav#sidebar.open {
+		transform: translate(250px);
+	}
+
+	#search {
+		margin-top: 2.5rem;
+	}
+}
+
+main p {
+	font-size: large;
+}
+
+.simplebar-scrollbar::before {
+	/*background: linear-gradient(darkblue, skyblue);*/
+	background-color: #455a6f;
+	opacity: 1;
+	transition: none;
+}
+
+.simplebar-track {
+	/*background-color: rgba(255, 255, 255, 0.35);*/
+	background-color: #7b858e;
+	z-index: 20;
+}
+
+
+
+/*文字ボックス*/
+.bg-key {
+	background-color: #28a745 !important;
+	color: #fff;
+	padding: 0.05rem 0.4rem 0.25rem;
+	letter-spacing: 0.1rem;
+	border-radius: 0.3rem;
+	font-size: 1.2rem;
+	margin-bottom: 0.3rem;
+	display: inline-block;
+}
+
+span.plus {
+	margin: 0 0.3rem;
+	font-size: 1.2rem;
+}
+
+.bg-key.key-small {
+	padding: 0.1rem 0.4rem 0.3rem;
+	letter-spacing: 0.05rem;
+	font-size: 1.1rem;
+}
+
+.bg-key.key-one {
+	display: inline-block;
+	min-width: 2rem;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	line-height: initial;
+}
+
+
+/* ====================================
+目 次
+======================================*/
+#mokuji {
+	border: 1px solid #ccc;
+	padding: 15px 20px 20px 20px;
+	width: auto;
+	min-width: 50%;
+	/*min-width: 600px;*/
+	display: inline-block;
+	background-color: #f8f8f8;
+	margin-bottom: 40px;
+	line-height: 1.4;
+}
+
+@media only screen and (max-width: 991px) {
+	#mokuji {
+		min-width: auto;
+		width: 100%;
+	}
+}
+
+#mokuji h2 {
+	font-size: 1.2rem;
+	background-color: transparent;
+	color: #000;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+}
+
+#mokuji a {
+	padding-left: 0.5rem;
+	font-size: 1rem;
+	color: #039;
+	text-decoration: none;
+}
+
+#mokuji a:hover {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+#mokuji>ol[class^=mokuji-list] {
+	padding-left: 1.5rem;
+}
+
+#mokuji ol[class^=mokuji-list]>li {
+	list-style: none;
+}
+
+#mokuji ol[class^=mokuji-list]>li>a {
+	font-size: 1.05rem;
+}
+
+#mokuji ol[class^=mokuji-list]>li ul {
+	margin-top: 0.5rem;
+	margin-left: 1rem;
+}
+
+.mokuji-box {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 992px) {
+
+	#list-mokuji1,
+	#list-mokuji2 {
+		width: 50%;
+	}
+}
+
+#list-mokuji>li,
+#list-mokuji1>li,
+#list-mokuji2>li {
+	margin-bottom: 0.5rem;
+}

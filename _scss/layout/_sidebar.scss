@@ -1,0 +1,328 @@
+/* ====================================
+サイドメニュー
+======================================*/
+
+#body {
+    position: relative;
+    margin-left: 280px;
+    min-height: 100%;
+    /*transition: all 0.5s ease;*/
+}
+
+
+#sidebar {
+    font-family: "Muli", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    //letter-spacing: -0.03rem;
+    background-color: #38424d;
+    position: fixed;
+    top: 0;
+    width: 280px;
+    bottom: 0;
+    /*left: -250px;*/
+    left: 0;
+    font-weight: 500;
+    font-size: 15px;
+    /*transform: translate(0);*/
+    /*transition: all 0.5s ease;*/
+    /*overflow-y: auto;*/
+
+    @media only screen and (max-width: 1280px) {
+        width: 260px;
+    }
+
+    #header-wrapper {
+        padding: 1.8rem 0 1.3rem 0.5rem;
+
+        #search label {
+            margin-bottom: 0;
+            color: #fff;
+        }
+    }
+
+    #menu-wrap {
+        overflow: auto;
+        min-width: 200px;
+
+        ul {
+            list-style-type: none;
+            margin: 0 0 1rem;
+            padding-left: 0;
+
+            &.sub-menu {
+                display: none;
+                /*初期状態*/
+            }
+
+            li {
+                list-style: none;
+                padding: 0 0.3rem 0 0.5rem;
+                text-align: left;
+
+                a {
+                    position: relative;
+
+                    &.lock {
+                        padding-right: 1.5rem;
+                        &::before {
+                            content: "";
+                            //display: inline-block;
+                            position: absolute;
+                            right: 10px;
+                            height: 16px;
+                            width: 16px;
+                            background: url(../images/icon-lock.svg) no-repeat;
+                            background-size: auto 100%;
+                        }
+                    }                   
+                }
+
+
+                &.cate-active {
+
+                    >a {
+                        background: #fff;
+                        color: #555;
+                        text-decoration: none;
+                        pointer-events: none;
+
+                        & a:hover,
+                        & a:focus {
+                            text-decoration: none;
+                        }
+                    }
+
+                    ul.sub-menu {
+                        display: block;
+                    }
+                }
+
+                &.active {
+
+                    ul.sub-menu {
+                        display: block;
+                    }
+                }
+
+                &.toggle {
+                    position: relative;
+
+                    > a {
+                        padding-right: 1.5rem;
+
+                        &::after {
+                            content: "\f107";
+                            font-family: ForkAwesome;
+                            display: block;
+                            position: absolute;
+                            right: 11px;
+                            top: 6px;
+                            color: #fff;
+                            transform: scale(0.9);
+                        }
+
+                        &.lock {
+                            position: relative;
+        
+                            &::before {
+                                right: 23px;
+                            }
+                        }  
+                    }
+
+                    &.cate-active {
+    
+                        >a::after {
+                            content: "\f054";
+                            color: #000;
+                            transform: rotate(90deg) scale(0.65);
+                            right: 10px;
+                        }
+                    }
+                }
+            }
+
+            >li {
+
+                > a {
+                    display: block;
+                    line-height: 1.2;
+                    padding: 0.35rem 0 0.35rem 0.5rem;
+                    color: #bbbbbb;
+                    font-size: 1.2rem;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-decoration: none;
+
+                    &:hover,
+                    &:focus {
+                        text-decoration: underline;
+                    }
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                > ul {
+                    margin: 0;
+
+                    li {
+                        margin: 0;
+                        padding: 0.05rem 0.3rem 0.05rem 1rem;
+
+                        a {
+                            font-size: 1.05rem;
+                            padding-left: 0.7rem;
+                            padding-bottom: 0.4rem;
+                            padding-top: 0.4rem;
+                        }
+
+                        &.toggle {
+        
+                            > a {
+                                padding-right: 2rem;
+
+                                &::after {
+                                    right: 7px;
+                                }
+
+                                &.lock {
+                                    &::before {
+                                        right: 17px;
+                                    }
+                                }
+                            }
+                        }
+
+                        ul {
+                            li {
+                                a {
+                                    font-size: 1rem;
+                                    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+                                    margin-left: 0.5rem;
+                                }
+
+                                &:first-child {
+
+                                    a {
+                                        padding-top: .2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+/* ====================================
+ハンバーガメニュー
+======================================*/
+@media screen and (max-width: 979px) {
+    .header-menu {
+        display: inline-block;
+        min-width: 22px;
+        height: 22px;
+        padding: 12px 10px 6px;
+        width: 44px;
+        height: 44px;
+        margin: 2px 30px 0 0;
+        vertical-align: middle;
+        position: relative;
+        cursor: pointer;
+        position: fixed;
+        top: 5px;
+        z-index: 5;
+    }
+
+    .header-menu.is-close span,
+    .header-menu.is-close span:after,
+    .header-menu.is-close span:before {
+        position: absolute;
+        height: 3px;
+        width: 22px;
+        border-radius: 1.5px;
+        display: block;
+        content: "";
+        z-index: 1;
+    }
+
+    .header-menu span,
+    .header-menu span:after,
+    .header-menu span:before {
+        background: #737373;
+    }
+
+    .header-menu.is-close span:before {
+        bottom: -8px;
+    }
+
+    .header-menu.is-close span,
+    .header-menu.is-close span:after,
+    .header-menu.is-close span:before {
+        position: absolute;
+        height: 3px;
+        width: 22px;
+        border-radius: 1.5px;
+        display: block;
+        content: "";
+        z-index: 1;
+    }
+
+    .header-menu span,
+    .header-menu span:after,
+    .header-menu span:before {
+        background: #737373;
+    }
+
+    .header-menu.is-close span:before {
+        bottom: -8px;
+    }
+
+    .header-menu.is-close span,
+    .header-menu.is-close span:after,
+    .header-menu.is-close span:before {
+        position: absolute;
+        height: 3px;
+        width: 22px;
+        border-radius: 1.5px;
+        display: block;
+        content: "";
+        z-index: 1;
+    }
+
+    .header-menu span,
+    .header-menu span:after,
+    .header-menu span:before {
+        background: #737373;
+    }
+
+    .header-menu.is-close span:after {
+        bottom: -16px;
+    }
+
+    .header-menu.is-close span,
+    .header-menu.is-close span:after,
+    .header-menu.is-close span:before {
+        position: absolute;
+        height: 3px;
+        width: 22px;
+        border-radius: 1.5px;
+        display: block;
+        content: "";
+        z-index: 1;
+    }
+
+    .header-menu span,
+    .header-menu span:after,
+    .header-menu span:before {
+        background: #737373;
+    }
+}

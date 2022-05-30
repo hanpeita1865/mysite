@@ -1,0 +1,276 @@
+/* ====================================
+マークダウン55
+======================================*/
+
+body .text-markdown {
+	min-height: 200px;
+	font-size: 1rem;
+	padding: 0 30px 40px 30px;
+	min-height: 600px;
+	/*表示のため、追加*/
+
+    p {
+        font-size: 1rem;
+    }
+    
+    a {
+        color: #039;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: #041b48;
+        }
+    }
+    
+    ul,
+    ol {
+        padding-left: 30px;
+    }
+    
+    dl {
+        padding-left: 10px;
+
+        dt {
+            margin-top: 0.5rem;
+        }
+        
+        dd {
+            margin-left: 1rem;
+        }
+    }
+    
+    ul li,
+    ol li {
+        margin-bottom: 0.25rem;
+
+         p {
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+    
+    ul>li>ul>li {
+        list-style: circle;
+    }
+    
+    ul li>dl,
+    ol li>dl {
+        padding-left: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    ul li>dl dd,
+    ol li>dl dd {
+        margin-left: 0;
+    }
+
+    ol.list-bra,
+    .list-bra ol {
+        padding-left: 0;
+    }
+    
+    ol.list-bra li,
+    .list-bra ol li {
+        list-style-type: none;
+        list-style-position: inside;
+        counter-increment: cnt;
+        padding-left: 1rem;
+    }
+    
+    ol.list-bra li::before,
+    .list-bra ol li::before {
+        content: "("counter(cnt) ")";
+        display: inline-block;
+        padding-right: 5px;
+    }
+
+    iframe {
+        margin-top: .5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    details {
+        margin-bottom: 2rem;
+    
+        summary {
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 1px solid #f1d06e;
+            padding: 1rem 0.5rem 1rem 1rem;
+            margin: 2.5rem 0 1rem;
+            background-color: bisque;
+    
+            &:hover {
+                background-color: #d6eeff;
+            }
+        }
+    }
+    
+    //注釈　※半角スペース～
+    p.text-note {
+        font-size: .92rem;
+        color: red;
+        text-indent: -1.3em;
+        margin-left: 1.3em;
+    }
+
+
+
+    /*リストの数字を太く*/
+    div[class^=numbold] ol li,
+    ol[class^=numbold] li {
+        position: relative;
+        list-style-type: none;
+        list-style-position: inside;
+        counter-increment: cnt;
+        padding-left: 1.5rem;
+    }
+
+    div[class^=numbold] ol li::before,
+    ol[class^=numbold] li:before {
+        display: block;
+        position: absolute;
+        left: 2px;
+        top: 0;
+        content: counter(cnt) ".";
+        transform: scale(1.2) skewX(-7deg);
+        font-weight: bold;
+        background: none !important;
+    }
+
+    .numbold-greem ol li::before,
+    .numbold-green li:before {
+        color: green;
+    }
+
+
+    /*コメントの色*/
+    .hljs-comment {
+        color: #1e7e34;
+    }
+
+    /*インラインのコードの色*/
+    /*code {
+        color: #ff0075;
+    }*/
+
+    .parts-fileList {
+        text-align: right;
+        color: green;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
+
+
+
+.search-result p {
+	margin-bottom: 0;
+}
+
+.search-result pre {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.search-result section {
+	border: 1px solid #e7e7e7;
+	border-radius: 0px;
+	box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.2);
+	padding: 0.5em 1em;
+	margin-left: -0.5em;
+	margin-right: -0.5em;
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+
+.search-result section h3 {
+	font-size: 1.2rem;
+	margin-top: 0.5rem;
+}
+
+.search-result section h3 span {
+	font-size: 1rem;
+}
+
+.search-result section code {
+	color: #212529;
+}
+
+#search-number {
+	margin-top: 1rem;
+}
+
+.btn-partsUpdate {
+	font-size: 17px;
+	margin-left: auto;
+	cursor: pointer;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	outline: none;
+	display: none;
+}
+
+.btn-partsUpdate:hover,
+.btn-edit:hover {
+	background-color: green;
+	color: #fff;
+	border: 1px solid green;
+}
+
+.partsBtn-fixed {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+}
+
+
+/**** コード表示 ****/
+pre {
+	margin-bottom: 1.5rem;
+	overflow-x: auto;
+	/*padding: 0.5rem;*/
+	line-height: 1.4;
+	font-family: monospace, monospace;
+	font-size: 0.9rem;
+	letter-spacing: 0;
+}
+
+/*.pre-wrap + pre code span[class^="hljs-"],
+.pre-wrap pre code span[class^="hljs-"] {
+	white-space: normal;
+}*/
+pre code span[class^=hljs-],
+pre code span[class^=hljs-] {
+	white-space: normal;
+}
+
+.search-result pre {
+	overflow: hidden;
+}
+
+h4+pre {
+	margin-top: 0;
+}
+
+ul li pre,
+ol li pre {
+	margin-bottom: 1rem;
+}
+
+
+
+
+
+
+

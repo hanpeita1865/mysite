@@ -1,0 +1,575 @@
+/*========================================
+幅の調整
+=========================================*/
+
+@use "../base/breakpoint" as *;
+
+// %指定 幅
+@for $i from 1 through 100 {
+	.wd#{$i} { width: 0% + $i !important; }
+}
+
+// px指定 幅
+@for $i from 1 through 100 {
+	.wdp#{$i * 5} { width: 5px * $i !important; }
+}
+
+
+//991px以下
+@include media(pc) {
+	.ptb-wd100 {
+		width: 100% !important;
+	}
+}
+
+//767px以下
+@include media(tb) {
+	@for $i from 0 through 100 {
+		.tb-wd#{$i} { width: 0% + $i !important; }
+	}
+}
+
+//575px以下
+@include media(sm) {
+	@for $i from 0 through 100 {
+		.sp-wd#{$i} { width: 0% + $i !important; }
+	}
+}
+
+
+/*========================================
+マージン、パディングの調整
+=========================================*/
+
+
+/*マージン・パディング トップ*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgt#{$i} { margin-top: $i !important; }
+		.pdt#{$i} { padding-top: $i !important; }
+	}
+	@else {
+		.mgt#{$i * 5} { margin-top: 5px * $i !important; }
+		.pdt#{$i * 5} { padding-top: 5px * $i !important; }
+	}
+}
+/*マージン・パディング ボトム*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgb#{$i} { margin-bottom: $i !important; }
+		.pdb#{$i} { padding-bottom: $i !important; }
+	}
+	@else {
+		.mgb#{$i * 5} { margin-bottom: 5px * $i !important; }
+		.pdb#{$i * 5} { padding-bottom: 5px * $i !important; }
+	}
+}
+
+/*マージン・パディング レフト*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgl#{$i} { margin-left: $i !important; }
+		.pdl#{$i} { padding-left: $i !important; }
+	}
+	@else {
+		.mgl#{$i * 5} { margin-left: 5px * $i !important; }
+		.pdl#{$i * 5} { padding-left: 5px * $i !important; }
+	}
+}
+/*マージン・パディング ライト*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgr#{$i} { margin-right: $i !important; }
+		.pdr#{$i} { padding-right: $i !important; }
+	}
+	@else {
+		.mgr#{$i * 5} { margin-right: 5px * $i !important; }
+		.pdr#{$i * 5} { padding-right: 5px * $i !important; }
+	}
+}
+
+/*マージン・パディング レフト・ライト両方*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgx#{$i} { 
+			margin-left: $i !important;
+			margin-right: $i !important;
+		}
+		.pdx#{$i} { 
+			padding-left: $i !important;
+			padding-right: $i !important;
+		}
+	}
+	@else {
+		.mgx#{$i * 5} {
+			margin-left: 5px * $i !important;
+			margin-right: 5px * $i !important; 
+		}
+		.pdx#{$i * 5} { 
+			padding-left: 5px * $i !important;
+			padding-right: 5px * $i !important; 
+		}
+	}
+}
+
+/*マージン・パディング 上下両方*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mgy#{$i} { 
+			margin-top: $i !important;
+			margin-bottom: $i !important;
+		}
+		.pdy#{$i} { 
+			padding-top: $i !important;
+			padding-bottom: $i !important;
+		}
+	}
+	@else {
+		.mgy#{$i * 5} {
+			margin-top: 5px * $i !important;
+			margin-bottom: 5px * $i !important; 
+		}
+		.pdy#{$i * 5} { 
+			padding-top: 5px * $i !important;
+			padding-bottom: 5px * $i !important; 
+		}
+	}
+}
+
+/*マージン・パディング 全方位*/
+@for $i from 0 through 20 {
+	@if $i == 0 {
+		.mg#{$i} { 
+			margin-top: $i !important;
+			margin-bottom: $i !important;
+			margin-left: $i !important;
+			margin-right: $i !important;
+		}
+		.pd#{$i} { 
+			padding-top: $i !important;
+			padding-bottom: $i !important;
+			padding-left: $i !important;
+			padding-right: $i !important;
+		}
+	}
+	@else {
+		.mg#{$i * 5} {
+			margin-top: 5px * $i !important;
+			margin-bottom: 5px * $i !important;
+			margin-left: 5px * $i !important;
+			margin-right: 5px * $i !important;
+		}
+		.pd#{$i * 5} { 
+			padding-top: 5px * $i !important;
+			padding-bottom: 5px * $i !important;
+			padding-left: 5px * $i !important;
+			padding-right: 5px * $i !important;
+		}
+	}
+}
+
+
+
+//768px以上
+@media only screen and (min-width: 768px) {
+	
+	//マージン・パディング（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgt#{$i} { margin-top: $i !important; }
+			.pc-pdt#{$i} { padding-top: $i !important; }
+		}
+		@else {
+			.pc-mgt#{$i * 5} { margin-top: 5px * $i !important; }
+			.pc-pdt#{$i * 5} { padding-top: 5px * $i !important; }
+		}
+	}
+
+
+	//マージン・パディング ボトム（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgb#{$i} { margin-bottom: $i !important; }
+			.pc-pdb#{$i} { padding-bottom: $i !important; }
+		}
+		@else {
+			.pc-mgb#{$i * 5} { margin-bottom: 5px * $i !important; }
+			.pc-pdb#{$i * 5} { padding-bottom: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング レフト（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgl#{$i} { margin-left: $i !important; }
+			.pc-pdl#{$i} { padding-left: $i !important; }
+		}
+		@else {
+			.pc-mgl#{$i * 5} { margin-left: 5px * $i !important; }
+			.pc-pdl#{$i * 5} { padding-left: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング ライト（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgr#{$i} { margin-right: $i !important; }
+			.pc-pdr#{$i} { padding-right: $i !important; }
+		}
+		@else {
+			.pc-mgr#{$i * 5} { margin-right: 5px * $i !important; }
+			.pc-pdr#{$i * 5} { padding-right: 5px * $i !important; }
+		}
+	}
+
+	//マージン・パディング レフト・ライト両方（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgx#{$i} { 
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.pc-pdx#{$i} { 
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.pc-mgx#{$i * 5} {
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important; 
+			}
+			.pc-pdx#{$i * 5} { 
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 上下両方（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mgy#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+			}
+			.pc-pdy#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+			}
+		}
+		@else {
+			.pc-mgy#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important; 
+			}
+			.pc-pdy#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 全方位（PC用）
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.pc-mg#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.pc-pd#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.pc-mg#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important;
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important;
+			}
+			.pc-pd#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important;
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important;
+			}
+		}
+	}
+}
+
+
+
+//767px以下
+@include media(tb) {
+	//マージン・パディング トップ (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgt#{$i} { margin-top: $i !important; }
+			.tb-pdt#{$i} { padding-top: $i !important; }
+		}
+		@else {
+			.tb-mgt#{$i * 5} { margin-top: 5px * $i !important; }
+			.tb-pdt#{$i * 5} { padding-top: 5px * $i !important; }
+		}
+	}
+
+
+	//マージン・パディング ボトム (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgb#{$i} { margin-bottom: $i !important; }
+			.tb-pdb#{$i} { padding-bottom: $i !important; }
+		}
+		@else {
+			.tb-mgb#{$i * 5} { margin-bottom: 5px * $i !important; }
+			.tb-pdb#{$i * 5} { padding-bottom: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング レフト (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgl#{$i} { margin-left: $i !important; }
+			.tb-pdl#{$i} { padding-left: $i !important; }
+		}
+		@else {
+			.tb-mgl#{$i * 5} { margin-left: 5px * $i !important; }
+			.tb-pdl#{$i * 5} { padding-left: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング ライト (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgr#{$i} { margin-right: $i !important; }
+			.tb-pdr#{$i} { padding-right: $i !important; }
+		}
+		@else {
+			.tb-mgr#{$i * 5} { margin-right: 5px * $i !important; }
+			.tb-pdr#{$i * 5} { padding-right: 5px * $i !important; }
+		}
+	}
+
+	//マージン・パディング レフト・ライト両方 (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgx#{$i} { 
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.tb-pdx#{$i} { 
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.tb-mgx#{$i * 5} {
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important; 
+			}
+			.tb-pdx#{$i * 5} { 
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 上下両方 (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mgy#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+			}
+			.tb-pdy#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+			}
+		}
+		@else {
+			.tb-mgy#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important; 
+			}
+			.tb-pdy#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 全方位 (タブレット、スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.tb-mg#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.tb-pd#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.tb-mg#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important;
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important;
+			}
+			.tb-pd#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important;
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important;
+			}
+		}
+	}
+}
+
+
+
+
+//575px以下
+@include media(sm) {
+	//マージン・パディング トップ (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgt#{$i} { margin-top: $i !important; }
+			.sp-pdt#{$i} { padding-top: $i !important; }
+		}
+		@else {
+			.sp-mgt#{$i * 5} { margin-top: 5px * $i !important; }
+			.sp-pdt#{$i * 5} { padding-top: 5px * $i !important; }
+		}
+	}
+
+
+	//マージン・パディング ボトム (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgb#{$i} { margin-bottom: $i !important; }
+			.sp-pdb#{$i} { padding-bottom: $i !important; }
+		}
+		@else {
+			.sp-mgb#{$i * 5} { margin-bottom: 5px * $i !important; }
+			.sp-pdb#{$i * 5} { padding-bottom: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング レフト (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgl#{$i} { margin-left: $i !important; }
+			.sp-pdl#{$i} { padding-left: $i !important; }
+		}
+		@else {
+			.sp-mgl#{$i * 5} { margin-left: 5px * $i !important; }
+			.sp-pdl#{$i * 5} { padding-left: 5px * $i !important; }
+		}
+	}
+	
+	//マージン・パディング ライト (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgr#{$i} { margin-right: $i !important; }
+			.sp-pdr#{$i} { padding-right: $i !important; }
+		}
+		@else {
+			.sp-mgr#{$i * 5} { margin-right: 5px * $i !important; }
+			.sp-pdr#{$i * 5} { padding-right: 5px * $i !important; }
+		}
+	}
+
+	//マージン・パディング レフト・ライト両方 (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgx#{$i} { 
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.sp-pdx#{$i} { 
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.sp-mgx#{$i * 5} {
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important; 
+			}
+			.sp-pdx#{$i * 5} { 
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 上下両方 (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mgy#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+			}
+			.sp-pdy#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+			}
+		}
+		@else {
+			.sp-mgy#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important; 
+			}
+			.sp-pdy#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important; 
+			}
+		}
+	}
+	
+	//マージン・パディング 全方位 (スマホ用)
+	@for $i from 0 through 20 {
+		@if $i == 0 {
+			.sp-mg#{$i} { 
+				margin-top: $i !important;
+				margin-bottom: $i !important;
+				margin-left: $i !important;
+				margin-right: $i !important;
+			}
+			.sp-pd#{$i} { 
+				padding-top: $i !important;
+				padding-bottom: $i !important;
+				padding-left: $i !important;
+				padding-right: $i !important;
+			}
+		}
+		@else {
+			.sp-mg#{$i * 5} {
+				margin-top: 5px * $i !important;
+				margin-bottom: 5px * $i !important;
+				margin-left: 5px * $i !important;
+				margin-right: 5px * $i !important;
+			}
+			.sp-pd#{$i * 5} { 
+				padding-top: 5px * $i !important;
+				padding-bottom: 5px * $i !important;
+				padding-left: 5px * $i !important;
+				padding-right: 5px * $i !important;
+			}
+		}
+	}
+}
+
+

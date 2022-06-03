@@ -1,0 +1,307 @@
+/* ======================================================
+モーダル（modal.scss）
+====================================================== */
+
+.modal-box {
+    position: fixed;
+    display: none;
+    z-index: 10;
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+.modal-close {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    //z-index: 9;
+    z-index: 8;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-box input[name="keyword"] {
+    width: 20em;
+    margin: 0.5em;
+}
+
+img.modal-origin {
+    max-height: 800px;
+    max-width: 90%;
+}
+
+.modal-origin {
+    position: fixed;
+    display: none;
+    z-index: 10;
+    margin: 10px;
+    padding: 10px;
+    /* border-radius: 20px; */
+    background: #fff;
+}
+
+.modal-open {
+    cursor: pointer;
+}
+
+.modal-content {
+    position: fixed;
+    display: none;
+    z-index: 10;
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+/***** Prev,Nextボタン *****/
+
+.slick-arrow {
+    /*display: none;*/
+    opacity: 0.01;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6.5625%;
+    max-width: 53px;
+    height: 0;
+    min-width: 40px;
+    min-height: 60px;
+    padding-top: 11.25%;
+    overflow: hidden;
+    font-size: 0;
+    background: none center center no-repeat rgba(0, 0, 0, 0);
+    background-size: 30.95%;
+    border: none;
+    z-index: 20;
+}
+
+.slick-prev {
+    left: 10px;
+    background-image: url(../images/prev.png);
+    border-radius: 0 6px 6px 0;
+}
+
+.slick-next {
+    right: 10px;
+    background-image: url(../images/next.png);
+    border-radius: 6px 0 0 6px;
+}
+
+.modal-origin:hover > .slick-arrow,
+.modal-origin:focus > .slick-arrow {
+    /*display: block;*/
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.slick-arrow:hover,
+.slick-arrow:focus {
+    cursor: pointer;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.slick-arrow:hover {
+    outline: none;
+}
+
+.modal-origin.photo-first .slick-prev {
+    display: none;
+}
+
+.modal-origin.photo-last .slick-next {
+    display: none;
+}
+
+/***** テンポラリーモーダル *****/
+
+#modal-temporary {
+    width: 780px;
+    padding-left: 0;
+    padding-right: 0;
+
+    .temporary-inner {
+        max-height: 500px;
+        overflow-y: auto;
+        margin: 0 auto;
+
+        h3 {
+            color: green;
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: メイリオ, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin-top: 0 !important;
+        }
+
+        /** テーブル **/
+        table {
+            max-width: 760px;
+            th {
+                font-size: 1.3rem;
+                white-space: nowrap;
+                padding: 7px 5px;
+            }
+            td {
+                font-size: 1.3rem;
+                padding: 7px 5px;
+
+                &:nth-child(1),
+                &:nth-child(5),
+                &:nth-child(6) {
+                    text-align-last: center;
+                }
+
+                &:nth-child(1) {
+                    //カテゴリー
+                    white-space: nowrap;
+                }
+
+                &:nth-child(2) {
+                    //タイトル
+                    width: 240px;
+                    max-width: 240px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+
+            input[type="button"],
+            input[type="submit"] {
+                padding: 5px;
+                cursor: pointer;
+                color: #fff;
+                border: 1px solid #aaa;
+            }
+
+            input[type="button"]:hover {
+                opacity: 0.7;
+            }
+
+            .btn-tmpEdit {
+                background-color: green;
+            }
+
+            .btn-tmpDel {
+                background-color: red;
+            }
+        }
+    }
+
+    .modal-photo-close:focus {
+        outline: 1px solid skyblue;
+    }
+
+    .modal-photo-close:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media (max-width: 820px) {
+    #modal-temporary {
+        width: 90%;
+    }
+}
+
+/*** マークダウン専用モーダル ***/
+.modal-wrap {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+}
+
+.modal-overlay {
+    z-index: 9;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+#photo {
+    //position: fixed;
+    display: none;
+    z-index: 10;
+    font-size: 0;
+    margin: 10px;
+    padding: 10px;
+    background: #fff;
+
+    img {
+        max-width: 100%;
+        max-height: 83vh;
+    }
+}
+
+#text-markdown{
+    a{
+        &.modal-win{
+            display: block;
+            
+            &:hover {
+                outline: 2px solid #2196f3;
+            }
+
+            &.fa.fa-search-plus {
+                position: relative;
+            
+                figure {
+                    margin: 0;
+                }
+            
+                &::before {
+                    content: "\f00e";
+                    display: inline-block;
+                    position: absolute;
+                    left: 2px;
+                    bottom: 2px;
+                    width: 25px;
+                    color: #fff;
+                }
+            
+                &.black {
+                    &::before {
+                        color: #000;
+                    }
+                }
+            
+                &.blue {
+                    &::before {
+                        color: #4040eb;
+                    }
+                }
+            
+                &.green {
+                    &::before {
+                        color: green;
+                    }
+                }
+            
+                &.pink {
+                    &::before {
+                        color: hotpink;
+                    }
+                }
+            }
+        }
+    }
+}

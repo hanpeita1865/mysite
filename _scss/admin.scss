@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+.side-link {
+
+    li {
+        line-height: 2.5rem;
+        border: 1px solid #cccccc;
+        cursor: pointer;
+        list-style: none;
+        padding-left: 1rem;
+        position: relative;
+
+        &:hover {
+            background-color: #b2e0e0;
+        }
+
+        &.dummy {
+            height: 20px;
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                background-color: transparent;
+                cursor: auto;
+            }
+        }
+
+        &.emp {
+            min-height: 80px;
+            border: 1px solid green;
+        
+            li {
+                height: 80px;
+            }
+        }
+
+        &:first-child{
+
+            &.dummy {
+                display: none;
+            }
+        }
+
+        a {
+            z-index: 10;
+
+            &.lock {
+                position: relative;
+                padding-left: 0;
+
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    height: 16px;
+                    width: 16px;
+                    margin-left: 3px;
+                    background: url(../images/icon-lock.svg) no-repeat;
+                    background-size: auto 100%;
+                }
+            }
+        }
+        
+        button {
+    
+            &.folder-del {
+                position: absolute;
+                font-size: .8rem;
+                right: 91px;
+                line-height: 1.2;
+                margin-top: 10px;
+                border: 1px solid rgb(224, 16, 16);
+                color: rgb(224, 16, 16);
+        
+                &:hover {
+                    color: #fff;
+                    background-color: rgb(224, 16, 16);
+                }
+            }
+    
+            &.folder-rename {
+                position: absolute;
+                font-size: .8rem;
+                right: 137px;
+                line-height: 1.2;
+                margin-top: 10px;
+                border: 1px solid rgb(170, 155, 155);
+            }
+
+            &.btn-lock {
+                position: absolute;
+                font-size: .8rem;
+                right: 7px;
+                line-height: 1.2;
+                margin-top: 10px;
+                border: 1px solid green;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: green;
+                color: #fff;
+            }
+        }
+
+        ul {
+            &.sub-menu {
+        
+                li {
+                    &:first-child {
+                        margin-top: 10px;
+                    }
+        
+                    &:hover{
+                        background-color: rgb(235, 170, 96);
+                    }
+        
+                    ul {
+                        li{
+                            &:hover{
+                                background-color: rgb(236, 174, 212);
+                            }
+                        }
+                    }
+        
+                    &.emp-list{
+        
+                        &:hover {
+                            cursor: default;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.sub-close {
+        .sub-menu {
+            display: none;
+        }
+    }
+} 
+
+.link-name {
+    position: absolute;
+    right: 255px;
+}
+
+.btn-confirm {
+    font-size: 100%;
+    font-weight: bold;
+    min-width: 120px;
+    margin-top: 20px;
+    padding: 7px 10px;
+    background-color: #248;
+    color: #fff;
+    border-style: none;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background-color: #24d;
+        color: #fff;
+    }
+}
+
+
+
+.btn-create {
+    font-size: 100%;
+    min-width: 120px;
+    margin-top: 20px;
+    padding: 7px 10px;
+    cursor: pointer;
+    color: #000;
+
+    &:hover,
+    &:focus {
+        font-weight: bold;
+    }
+}
+
+.sub-close-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: .5rem;
+
+    button.btn-sub-close {
+        font-size: .8rem;
+        border: 1px solid #248;
+        color: #248;
+
+        &:hover {
+            color: #fff;
+            background-color: #248;
+        }
+    }
+}
+
+.side-link + .sub-close-area {
+    margin-top: .5rem;
+    margin-bottom: 0;
+}
+
+
+
+
+
+

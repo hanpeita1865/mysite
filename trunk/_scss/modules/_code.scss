@@ -1,0 +1,125 @@
+/* ====================================
+参照コードのタイトル
+======================================*/
+
+body .text-markdown {
+
+	p.tmp,
+	p.write,
+	p.comp,
+	p.result,
+	p.exp,
+	p.lang {
+		margin-bottom: 0.2rem;
+		font-weight: bold;
+	}
+
+	p.tmp+pre,
+	p.write+pre,
+	p.comp+pre,
+	p.result+pre,
+	p.file-name+pre {
+		margin-top: 0.5rem;
+	}
+
+	p.exp,
+	div.exp {
+		margin-top: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+
+	p.tmp span:first-of-type,
+	p.write span:first-of-type,
+	p.comp span:first-of-type,
+	p.result span,
+	p.exp span:first-of-type {
+		background: #026ca2;
+		color: #fff;
+		font-size: 0.8rem;
+		letter-spacing: 0.3rem;
+		padding: 0.15rem 0.3rem 0.15rem 0.7rem;
+		white-space: nowrap;
+		font-weight: normal;
+		margin-right: 1rem;
+		font-family: sans-serif;
+	}
+
+	p.tmp span:first-of-type {
+		padding: 0.1rem 0.1rem 0.1rem 0.5rem;
+	}
+
+	/*リスト*/
+	.tmp.list span:first-of-type {
+		background-color: #008000;
+		letter-spacing: -0.03rem;
+		padding: 0.15rem 0.35rem 0.15rem 0.3rem;
+		margin-right: 0.5rem;
+	}
+
+	/*コマンド*/
+	.tmp.cmd span:first-of-type {
+		background-color: #d24343;
+		letter-spacing: -0.03rem;
+		padding: 0.15rem 0.5rem 0.15rem 0.4rem;
+		margin-right: 0.5rem;
+	}
+
+	/*記述例*/
+	p.write span:first-of-type {
+		background: #008000;
+	}
+
+	p.comp span:first-of-type {
+		background: #ffa600;
+	}
+
+	/*例*/
+	p.exp span:first-of-type,
+	div.exp p.tmp span:first-of-type {
+		background: #bc495b;
+		min-width: 2rem;
+		display: inline-block;
+		letter-spacing: .1rem;
+		padding: 0.1rem 0.4rem 0.1rem 0.5rem;
+	}
+
+	/*表示*/
+	p.result {
+		margin-bottom: 1rem;
+
+		span {
+			background: none;
+			color: #000;
+			font-size: 1.1rem;
+			border-bottom: 2px solid #0f46c3;
+			padding-bottom: 0;
+			font-weight: bold;
+			padding: 0 4px 0 6px;
+		}
+	}
+
+	/*ファイル名*/
+	p.file-name {
+		margin-top: 1rem;
+		margin-bottom: 0;
+	}
+
+	p.file-name span {
+		background: rgba(0, 0, 0, 0.25);
+		color: #000;
+		border: 1px solid rgba(0, 0, 0, 0.25);
+		padding: 0.1rem 0.2rem;
+		font-size: 1rem;
+		font-weight: bold;
+	}
+
+	p.lang {
+		font-size: 1.1rem;
+		margin-top: 1rem;
+	}
+
+	p.lang+pre {
+		margin-top: 0;
+	}
+
+}

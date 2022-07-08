@@ -1,0 +1,4 @@
+{
+    "dartsass.targetDirectory": "css/",
+    "dartsass.outputFormat":"cssonly",
+}

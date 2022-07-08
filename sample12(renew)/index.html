@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リニューアル動作確認サンプル</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="css/gronav.css">-->
+    <!--<link rel="stylesheet" href="css/gronav1.css">-->
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <ul class="global-nav">
+                    <li class="nav-item h-link"><a href="page1/">サンプルページ1</a>
+                        <div class="hover-list-bg">
+                            <ul class="hover-list">
+                                <li class="hover-list-items"><a href="page1/subpage1/" class="hover-list-links">サブページ1-1</a></li>
+                                <li class="hover-list-items"><a href="page1/subpage2/" class="hover-list-links">サブページ1-2</a></li>
+                                <li class="hover-list-items"><a href="page1/subpage3/" class="hover-list-links">サブページ1-3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item h-link"><a href="page2/">サンプルページ2</a>
+                        <div class="hover-list-bg">
+                            <ul class="hover-list">
+                                <li class="hover-list-items"><a href="page2/subpage1/" class="hover-list-links">サブページ2-1</a></li>
+                                <li class="hover-list-items"><a href="page2/subpage2/" class="hover-list-links">サブページ2-2</a></li>
+                                <li class="hover-list-items"><a href="page2/subpage3/" class="hover-list-links">サブページ2-3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item h-link"><a href="page3/">サンプルページ3</a>
+                        <div class="hover-list-bg">
+                            <ul class="hover-list">
+                                <li class="hover-list-items"><a href="page3/subpage1/" class="hover-list-links">サブページ3-1</a></li>
+                                <li class="hover-list-items"><a href="page3/subpage2/" class="hover-list-links">サブページ3-2</a></li>
+                                <li class="hover-list-items"><a href="page3/subpage3/" class="hover-list-links">サブページ3-3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item h-link"><a href="page4/">サンプルページ4</a>
+                        <div class="hover-list-bg">
+                            <ul class="hover-list">
+                                <li class="hover-list-items"><a href="page4/subpage1/" class="hover-list-links">サブページ4-1</a></li>
+                                <li class="hover-list-items"><a href="page4/subpage2/" class="hover-list-links">サブページ4-2</a></li>
+                                <li class="hover-list-items"><a href="page4/subpage3/" class="hover-list-links">サブページ4-3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--<li class="nav-item"><a href="#">シーズンメニュー・プラン</a>
+                        <div class="hover-list-bg">
+                            <ul class="hover-list hover-list-wide" id="season-menu">
+                                <li class="hover-list-items"><a href="../files/lunch.pdf" class="hover-list-links" target="_blank">今週のランチ</a></li>
+                                <li class="hover-list-items"><a href="../files/monthly_dinner_yo.pdf" class="hover-list-links" target="_blank">10月洋食ディナーコース</a></li>
+                                <li class="hover-list-items"><a href="../files/monthly_dinner_wa.pdf" class="hover-list-links" target="_blank">錦秋会席料理（10/16～11/13）</a></li>
+                                <li class="hover-list-items"><a href="../files/partyplan.pdf" class="hover-list-links" target="_blank">秋のパーティープラン(9/1～11/30)</a></li>
+                                <li class="hover-list-items"><a href="../files/omotenashi_lunch.pdf" class="hover-list-links" target="_blank">秋のおもてなしランチ</a></li>
+                                <li class="hover-list-items"><a href="../files/20201028_halloween_lunch.pdf" class="hover-list-links" target="_blank">10/28・10/29ハロウィン特別ランチ</a></li>
+                                <li class="hover-list-items"><a href="../files/20201111_autumn_lunch.pdf" class="hover-list-links" target="_blank">11/11秋の味覚御膳ランチ</a></li>
+                                <li class="hover-list-items"><a href="../dinner/anniversary/yoshoku.html" class="hover-list-links">ハッピーアニバーサリー（洋食）</a></li>
+                                <li class="hover-list-items"><a href="../dinner/anniversary/washoku.html" class="hover-list-links">ハッピーアニバーサリー（和食）</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="../chef/index.html">総料理長挨拶</a></li>
+                    <li class="nav-item"><a href="../layout/index.html">レイアウト</a></li>-->
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <div class="sidebar-left">
+                    <div class="recently-area">
+                        <h2>最近使った項目</h2>
+                        <ul class="history-box" id="history"></ul>
+                        <div class="del-area">
+                            <input type="button" value="項目削除" onclick="cookieDelete()">
+                        </div>
+                    </div>
+                    <div class="tenant-area">
+                        <h2>テナントリンク</h2>
+                    </div>
+                    <div class="organize-area">
+                        <h2>組織リンク</h2>
+                    </div>
+                </div>
+                <div class="main-contents">
+                    <div class="news-area">
+                        <h2>News Topics</h2>
+                        <p>ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。ダミーテキストです。</p>
+                    </div>
+                </div>
+                <div class="sidebar-right side-box" id="sidebar-right">
+                    <div id="item1" class="today-schedule-area box-item" draggable="true">
+                        <h2>本日の予定</h2>
+                    </div>
+                    <div id="item2" class="announce-area box-item" draggable="true">
+                        <h2>告知</h2>
+                    </div>
+                    <div id="item3" class="banner-area box-item" draggable="true">
+                        <h2>バナーエリア</h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

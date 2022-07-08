@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>(即時確定)ボックス並べ替えサンプル｜</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<main>
+		<div class="container">
+			<h1>ボックス並べ替え</h1>
+            <p>ボックスをドラッグして並びを変更した直後にcookieに保存されます。ブラウザを更新しても変更した並びはそのままになります。</p>
+			<ul id="menu" class="side-link">
+                <li id="item1" class="box-item" draggable="true">
+                    <a>BOX_1</a>
+                </li>
+                <li id="item2" class="box-item" draggable="true">
+                    <a>BOX_2</a>
+                </li>
+                <li id="item3" class="box-item" draggable="true">
+                    <a>BOX_3</a>
+                </li>
+			</ul>
+            <div>
+                <!--<input type="button" value="並び順保存（cookieに値を格納）" onclick="cookieSetting()">-->
+                <input type="button" value="リセット（cookieの値を削除）" onclick="cookieSortDel()">
+            </div>
+		</div>
+
+
+    </main>
+	<!--<script src="js/jquery.min.js"></script>-->
+	<script src="js/script.js"></script>    
+</body>
+
+</html>

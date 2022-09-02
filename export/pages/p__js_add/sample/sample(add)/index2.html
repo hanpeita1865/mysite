@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>例1-2）複数のクラスを追加</title>
+  <style>
+    #target_id {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+    }
+
+    #btn {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="target_id" class="classA"></div>
+  <script>
+    let btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function () {
+      document.querySelector('#target_id').classList.add('classB', 'classC');
+    }, false);
+  </script>
+</body>
+</html>

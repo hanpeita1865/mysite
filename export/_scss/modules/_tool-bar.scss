@@ -1,0 +1,236 @@
+/* ====================================
+ツールバー1
+======================================*/
+
+/* 太字の赤文字「****〇〇****」*/
+.fa-font.fa-bold-red::before {
+	content: "\f032";
+	color: red;
+	font-weight: bold;
+}
+
+/* 太字の青文字*/
+.fa-font.fa-bold-blue::before {
+	content: "\f032";
+	color: blue;
+	font-weight: bold;
+}
+
+/* 太字の緑文字*/
+.fa-font.fa-bold-green::before {
+	content: "\f032";
+	color: green;
+	font-weight: bold;
+}
+
+/* 太字の紫文字*/
+.fa-font.fa-bold-purple::before {
+	content: "\f032";
+	color: purple;
+	font-weight: bold;
+}
+
+/** フォントアイコン色 **/
+.fa-red::before {
+	color: red;
+}
+
+.fa-blue::before {
+	color: blue;
+}
+
+.fa-green::before {
+	color: green;
+}
+
+/** div **/
+a.fa.fa-div {
+	width: 55px;
+}
+
+.fa-div:before {
+	content: "div";
+	font-size: 0.95rem;
+}
+
+/** div-mark **/
+a.fa.fa-div-mark {
+	width: 75px;
+
+	&::before {
+		content: "div-mark";
+		font-size: 0.85rem;
+		letter-spacing: -0.01rem;
+	}
+}
+
+
+/*テーブルキャプション*/
+a.fa.fa-tbCap {
+	width: 50px;
+
+	&::before {
+		content: "tb-cap";
+		font-size: 0.9rem;
+		font-size: 0.85rem;
+		letter-spacing: -0.01rem;
+	}
+}
+
+/*<details><summary>～*/
+a.fa.fa-details {
+	width: 60px;
+
+	&::before {
+		content: "details";
+		font-size: 0.9rem;
+		font-size: 0.85rem;
+		letter-spacing: -0.01rem;
+	}
+}
+
+/*横見出しテーブル*/
+.fa-tbside:before {
+	content: "\f0ce";
+	transform: rotate(-90deg) scale(0.85, 1.25);
+	display: inline-block;
+}
+
+/*テスト用テーブル*/
+.fa-tbtest:before {
+	content: "\f0ce";
+	transform: rotate(-90deg) scale(0.85, 1.25);
+	display: inline-block;
+}
+
+/*テスト用テーブルセル数設定*/
+.editor-toolbar a.fa-tbcell {
+	width: 15px;
+	height: 23px;
+}
+
+.fa-tbcell:before {
+	content: "数";
+	font-size: 0.9rem;
+}
+
+/** pre code **/
+a.fa.fa-pre {
+	width: 50px;
+}
+
+.fa-pre::before {
+	content: "pre";
+	font-size: 0.95rem;
+}
+
+.hljs {
+	padding: 1rem 0.5rem;
+}
+
+/** tmp 書式用タグ **/
+a.fa.fa-tmp {
+	width: 50px;
+}
+
+.fa-tmp::before {
+	content: "書式";
+	font-size: 0.95rem;
+	background: #026ca2;
+	color: #fff;
+	font-size: 0.87rem;
+	letter-spacing: 0.3rem;
+	padding: 0.2rem 0.3rem 0.2rem 0.7rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+/** tmpList リスト用タグ **/
+a.fa.fa-tmpList {
+	width: 50px;
+}
+
+.fa-tmpList::before {
+	content: "リスト";
+	font-size: 0.87rem;
+	background-color: #008000;
+	color: #fff;
+	letter-spacing: -0.03rem;
+	padding: 0.2rem 0.5rem 0.2rem 0.4rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+/** tmp コマンド用タグ **/
+a.fa.fa-cmd {
+	width: 65px;
+}
+
+.fa-cmd::before {
+	content: "コマンド";
+	font-size: 0.87rem;
+	background-color: #d24343;
+	color: #fff;
+	letter-spacing: -0.03rem;
+	padding: 0.2rem 0.5rem 0.2rem 0.4rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+.fa-exp::before {
+	content: "例";
+	font-size: 0.87rem;
+	background-color: #bc495b;
+	color: #fff;
+	letter-spacing: -0.03rem;
+	padding: 0.2rem 0.5rem 0.2rem 0.4rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+a.fa.fa-lang {
+	width: 35px;
+}
+
+.fa-lang::before {
+	content: "言語";
+	font-size: 0.87rem;
+	background-color: #585656;
+	color: #fff;
+	letter-spacing: -0.03rem;
+	padding: 0.2rem 0.5rem 0.2rem 0.4rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+a.fa.fa-result {
+	width: 35px;
+	margin-left: 9px;
+}
+
+.fa-result::before {
+	content: "結果";
+	font-size: 0.87rem;
+	background-color: #1509c0;
+	color: #fff;
+	letter-spacing: -0.03rem;
+	padding: 0.2rem 0.5rem 0.2rem 0.4rem;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-right: 1rem;
+}
+
+/** 全画面 **/
+a.fa.fa-arrows-alt {
+	position: absolute;
+	right: 5px;
+}
+
+a.fa.fa-arrows-alt.active {
+	position: static;
+}

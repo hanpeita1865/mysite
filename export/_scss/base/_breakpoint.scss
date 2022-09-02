@@ -1,0 +1,91 @@
+/*========================================
+メディアクエリ
+=========================================*/
+/*** デスクトップファースト ***/
+$bp-wide: 1199px;
+$bp-desktop: 991px;
+$bp-tablet: 767px;
+$bp-mobile: 575px;
+$bp-mobile-small: 414px;
+
+
+@mixin media($media-width) {
+	@if $media-width==wd {
+		@media only screen and (max-width: $bp-wide) {
+			@content;
+		}
+	}
+	@else if $media-width==pc {
+		@media only screen and (max-width: $bp-desktop) {
+			@content;
+		}
+	}
+	@else if $media-width==tb {
+		@media only screen and (max-width: $bp-tablet) {
+			@content;
+		}
+	}
+	@else if $media-width==sm {
+		@media only screen and (max-width: $bp-mobile) {
+			@content;
+		}
+	}
+	@else if $media-width==xs {
+		@media only screen and (max-width: $bp-mobile-small) {
+			@content;
+		}
+	}
+}
+
+/*
+//記入例
+@include media(wd) { font-size: 20px; }
+@include media(pc) { font-size: 20px; }
+@include media(tb) { font-size: 20px; }
+@include media(sm) { font-size: 20px; }
+@include media(xs) { font-size: 20px; }
+
+//個別にpx指定する場合
+@media only screen and (max-width: 801px) {
+	margin-top: 20px;
+}
+*/
+
+
+//モバイルファースト
+/*$bp-wide: 1200px;
+$bp-desktop: 992px;
+$bp-tablet: 768px;
+$bp-mobile: 426px;
+
+@mixin media($media-width) {
+	@if $media-width==wd {
+		@media only screen and (min-width: $bp-wide) {
+			@content;
+		}
+	}
+	@else if $media-width==pc {
+		@media only screen and (min-width: $bp-desktop) {
+			@content;
+		}
+	}
+	@else if $media-width==tb {
+		@media only screen and (min-width: $bp-tablet) {
+			@content;
+		}
+	}
+	@else if $media-width==sm {
+		@media only screen and (min-width: $bp-mobile) {
+			@content;
+		}
+	}
+}*/
+/*
+@include media(wd) { font-size: 20px; }
+@include media(pc) { font-size: 20px; }
+@include media(tb) { font-size: 20px; }
+@include media(sm) { font-size: 20px; }
+@media only screen and (min-width: 801px) {
+margin-top: 20px;
+}
+*/

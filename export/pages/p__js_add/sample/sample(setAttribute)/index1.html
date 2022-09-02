@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>例5-1）setAttribute()でclass名を書き換える</title>
+  <style>
+    #target_id {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+    }
+
+    #btn {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="target_id" class="classA"></div>
+  <button id="btn">クリック</button>
+  <script>
+    let i = 5;
+    let btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function () {
+      document.querySelector('#target_id').setAttribute('class', 'classB');
+    }, false);
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/*.contents {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+}
+.contents > div {
+    width: 33.3333%;
+    box-sizing: border-box;
+    padding: 10px;
+}*/
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto 0;
+}
+
+#csv {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 800px;
+}
+#csv > li {
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.pagination {
+    display: flex;
+    /*justify-content: center;*/
+    margin-top: 20px;
+}
+
+.pagination p {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: #606060;
+    color: #fff
+}
+
+.pagination p.prev,
+.pagination p.next {
+    background-color: #fff;
+    border: 1px solid #606060;
+    color: #000;
+}
+
+.pagination .next.disable,
+.pagination .prev.disable {
+    pointer-events: none;
+    background: #ddd;
+    border: 1px solid #aaa;
+    color: #aaa;
+}
+
+.next:hover, .prev:hover, .page_counter li:hover {
+    cursor: pointer;
+}
+.page_counter {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 10px;
+}
+
+.page_counter li {
+    border: 1px solid #606060;
+    padding: 5px 10px;
+}
+
+.page_counter li.current {
+    background: #606060;
+    color: #fff;
+}
+
+.page_counter li + li {
+    margin-left: 5px;
+}
+
+.page_counter li.current {
+    background: #606060;
+    color: #fff;
+}
+

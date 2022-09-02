@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>例1-1）クラスを追加</title>
+  <style id="webmakerstyle">
+    #target_id {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+    }
+
+    #btn {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="target_id" class="classA"></div>
+  <button id="btn">クリック</button>
+  <script>
+    let btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function () {
+      document.querySelector('#target_id').classList.add('classB');
+    }, false);
+  </script>
+</body>
+</html>

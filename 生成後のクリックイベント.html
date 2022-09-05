@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+
+</style>
+</head>
+<body>
+<div id="btn-area">
+    <!--<button id="btn">ボタン</button>-->
+</div>
+
+<script>
+let str = '<button id="btn">ボタン</button>';
+document.getElementById('btn-area').innerHTML = str ;
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function (e) {
+    console.log('クリック');
+    e.preventDefault();
+});
+
+
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>

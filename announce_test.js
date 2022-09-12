@@ -79,14 +79,13 @@ function getdateName() {
 			//パラメータにtodayがある場合
 			let paraDate = params.get('today');
 			ret = dateJoin(paraDate);
-			console.log(ret);
 		}else{
-			// 通常時：現在の日付(yyyymmdd)
+			// 通常時：現在の日付(yyyy-mm-dd)
 			ret = formatDate(new Date());	
 		}
 
 	} else {
-		// 通常時：現在の日付(yyyymmdd)
+		// 通常時：現在の日付(yyyy-mm-dd)
 		ret = formatDate(new Date());
 	}
 

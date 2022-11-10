@@ -1,1 +1,1 @@
-https://docs.emmet.io/cheat-sheet/
+https://satoyan419.com/custom-emmet-snippets-in-visual-studio-code/

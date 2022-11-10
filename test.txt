@@ -1,1 +1,10 @@
-https://satoyan419.com/custom-emmet-snippets-in-visual-studio-code/
+{
+    "variables": {
+        "lang": "ja"
+    },
+    "html": {
+      "snippets": {
+        "doc": "html[lang=${lang}]>(head>meta[charset=${charset}]+meta:vp+title{${1:Document}})+body"
+      }
+    }
+  }

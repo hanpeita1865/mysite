@@ -1,13 +1,1 @@
-Wrap機能
-
-みかん
-りんご
-すいか
-いちご
-
-ul>li*
-
-p*
-
-囲んでから
-div.box
+https://docs.emmet.io/cheat-sheet/

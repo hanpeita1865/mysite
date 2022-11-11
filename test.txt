@@ -1,47 +1,16 @@
-HTMLファイル上で「<span class="red bold">!</span>」を入力して<span class="red">tabキー</span>を押すと、以下のコードが記入されます。  
-ただデフォルトでは、lang属性が「<span class="red">en</span>」になってるのと、IEに対して互換性のモードを指定するmetaタグが入っているので、これをlang属性は「ja」に変更し、IEに対してのmetaタグは削除されたコードが記入されるように設定しておくと良いです。
-
-![](upload/lang_en.jpg)
-
-##### 設定変更方法
-
-参考サイト
-: https://satoyan419.com/custom-emmet-snippets-in-visual-studio-code/
-
-1. snippets.jsonファイルを作成して、下記コードを記述し、保存します。保存場所はどこでもいいです。
-
-<p class="lang">snippets.json</p>
-```
 {
-  "variables": {
-    "lang": "ja"
-  },
   "html": {
     "snippets": {
-      "doc": "html[lang=${lang}]>(head>meta[charset=${charset}]+meta:vp+title{${1:Document}})+body"
+      "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, pug, haml and slim }",
+      "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+      "ran": "{ Wrap plain text in curly braces }"
+    }
+  },
+  "css": {
+    "snippets": {
+      "cb": "color: black",
+      "bsd": "border: 1px solid ${1:red}",
+      "ls": "list-style: ${1}"
     }
   }
 }
-```
-
-2. 設定画面を開き、入力欄に「emmet」と記入し、エンターキーを押します。  
-　抽出された項目の中から、「Emmet: Extensions Path」の［<span class="red">項目を追加</span>］ボタンをクリックして、snippets.jsonファイルを保存した<span class="red">フォルダのパス</span>を記入して、OKをクリックします。
-
-![](upload/extensions_path項目の追加.jpg)
-
-3. 再度HTMLファイル上で「<span class="red bold">!</span>」を入力して<span class="red">Tabキー</span>を押すと、以下のようにlang属性が「ja」でIE用のmetaタグが削除されたコードが記入されます。
-![](upload/lang_ja_meta削除.jpg)
-
-css読み込みのlinkタグの場合
-
-「link:css」 を入力して、Enterキーを押下します。  
-そうすると、次のlinkタグが入力されます。
-```
-<link rel="stylesheet" href="style.css">
-```
-
-javascriptの読み込みコードの場合、「script:src」と入力してEnterキーを押下します。  
-そうすると、次のコードが入力されます。
-```
-<script src=""></script>
-```

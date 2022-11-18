@@ -1,1 +1,25 @@
-JavaScript の場合、クラスは Pascal ケース記法で、変数/関数(メソッド)はキャメルケース 記法で、定数はスネークケース記法で、それぞれ表すのが通例です。Vue.js を構成する要素の命名ルールについては、今後の章で徐々に解説していきます。
+// 変数名.pop()	配列の最後のデータを削除する
+// 変数名.push(データ)	配列の最後にデータを追加する
+// 変数名.shift()	配列の最初のデータを削除する
+// 変数名.unshift(データ)	配列の最初にデータを追加する
+//変数.splice(start, deleteCount, データ1,データ2, ... データX) インデックス位置を指定してデータを削除する（splice）
+
+
+let theme = ['XAMPP', 'jQuery', 'Javascript', 'Security'];
+
+// theme.pop();
+// console.log(theme);
+
+// theme.push('PHP');
+// console.log(theme);
+
+// theme.shift();
+// console.log(theme);
+
+// theme.unshift('Sass');
+// console.log(theme);
+
+theme.splice(1, 2,'Vue','Bootstrap','Ruby');
+console.log(theme);
+
+

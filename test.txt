@@ -1,25 +1,221 @@
-// 変数名.pop()	配列の最後のデータを削除する
-// 変数名.push(データ)	配列の最後にデータを追加する
-// 変数名.shift()	配列の最初のデータを削除する
-// 変数名.unshift(データ)	配列の最初にデータを追加する
-//変数.splice(start, deleteCount, データ1,データ2, ... データX) インデックス位置を指定してデータを削除する（splice）
+## Javascript
+
+参考サイト
+Web Design Leaves JavaScript / jQuery
+https://www.webdesignleaves.com/pr/jquery/
 
 
-let theme = ['XAMPP', 'jQuery', 'Javascript', 'Security'];
+async/await 入門（JavaScript）
+https://qiita.com/soarflat/items/1a9613e023200bbebcb3
 
-// theme.pop();
-// console.log(theme);
 
-// theme.push('PHP');
-// console.log(theme);
+mdn web docs Promise.resolve()
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
 
-// theme.shift();
-// console.log(theme);
+書式
+```
+Promise.resolve(value);
 
-// theme.unshift('Sass');
-// console.log(theme);
+引数:value
+```
 
-theme.splice(1, 2,'Vue','Bootstrap','Ruby');
-console.log(theme);
+Promise API
+https://ja.javascript.info/promise-api
 
+
+
+
+【JavaScript】非同期通信入門
+https://qiita.com/Yu-8chan/items/2308582aba4d46aaebed
+
+HTTP リクエストを送るには、 XMLHttpRequest オブジェクトを作成し、 URL を開いてリクエストを送信します。 トランザクションが完了すると、オブジェクトには結果の HTTP ステータスコード やレスポンスの本文などの有益な情報が格納されます。 XMLHttpRequest によって作成されたリクエストは、非同期または同期のいずれかの方法でデータを取得することが可能です。
+
+参考サイト　XMLHttpRequestの使い方
+https://wp-p.info/tpl_rep.php?cat=js-practice&fl=r16
+https://wp-p.info/tpl_rep.php?cat=js-practice&fl=r17
+
+XMLHttpRequestを使った通信
+```
+var ajax = new XMLHttpRequest();
+ 
+ajax.open("get", "./test.txt");
+ajax.send(); // 通信させます。
+ajax.addEventListener("load", function(){ // loadイベントを登録します。
+	// ここに処理書きます。
+}, false);
+```
+↓ thisで通信結果を出力
+```
+var ajax = new XMLHttpRequest();
+ 
+ajax.open("get", "./test.txt");
+ajax.send(); // 通信させます。
+ajax.addEventListener("load", function(){ // loadイベントを登録します。
+	console.log(this); // 通信結果を出力します。
+}, false);
+```
+
+サンプル
+https://wp-p.info/reps/js-practice/samples/16_01/
+
+コンソールに「初音ミク」が表示される。
+
+openで通信
+```
+var ajax = new XMLHttpRequest();
+ 
+ajax.open("post", "./test.txt");
+ajax.setRequestHeader("Content-Type", "application/json;charset=UTF-8"); // JSONとしてヘッダーを指定。
+ajax.send(JSON.stringify('[0, 1, 2]')); // 通信させます。
+ajax.addEventListener("load", function(){ // loadイベントを登録します。
+	console.log(this.response); // 通信結果を出力します。
+}, false);
+```
+
+参考サイト
+【同期、非同期通信】XMLHttpRequestとfetchの違い
+https://7-create.com/xhr-fetch/
+
+
+XMLHttpRequestとfetchの違い
+
+■ 分かりやすいコード
+fetchはXHRよりもコードがわかりやすく書きやすいという点があります。
+
+リクエストを送る場合のコードだけならfetchだと1行で書くことができます。
+XHRだと数行書かなくてはいけないです。
+```
+fetch("https://jsonplaceholder.typicode.com/users");
+```
+
+XMLHttpRequestの場合
+```
+var xhr= new XMLHttpRequest();
+xhr.open("GET","https://jsonplaceholder.typicode.com/users");
+xhr.send();
+```
+
+■ fetchだと返す値がPromise
+fetchは成功、失敗、取得後の処理までを一連のコードでまとめられるものはPromiseオブジェクトになります。
+fetchを使えば成功と失敗したときの処理もシンプルに記述することができます。
+
+
+
+参考サイト
+【JavaScript】promiseオブジェクトとは？メリットや使い方
+https://tech.amefure.com/js-promise
+
+promise(プロミス)とはJavaScriptの中の非同期処理の結果を取得できる仕組みのことです。
+
+promiseの最大のメリットは非同期処理終了後の結果に応じて処理を分岐できることです。これによりプログラムの中で行いたい処理の順番を明確に指定することができます。
+
+インスタンス化したpromiseの中では、非同期処理が成功なら「resolve(日本語で解決の意)」、失敗なら「reject(日本語で拒絶の意)」という関数を呼び出します。プロミスを使うことで非同期処理通信の成否によって処理を分岐させることが可能になります。
+
+promiseの正体はオブジェクトです。使用するにはnew演算子を使ってインスタンス化します。インスタンス化したpromiseオブジェクトを表示させると以下のように表示されます。
+
+```
+const promise = new Promise((resolve, reject) => {
+});
+console.log(promise);
+```
+consoleでオブジェクトを出力すれば現在のステータスを確認できます。ステータスが成功であればthenメソッドで、失敗であればcatchメソッドで後続の処理を記述することができます。
+
+```
+const promise = new Promise((resolve, reject) => {
+  // ここに結果を取得したい処理を記述
+  resolve('成功!');
+});
+
+promise.then((value) => {
+  console.log(value);
+  // 成功!
+});
+```
+
+rejectedの時に後続の処理を記述する場合はcatchメソッドを使います。使い方はthenメソッドと変わりません。こちらも同様にプロミスオブジェクトを返すのでメソッドチェーンが使用できます。
+```
+promise.catch(() => {
+console.log("rejectしたよ");
+});
+```
+
+メソッドチェーンを使った直列処理
+3つの処理を順番通りに行うことです。非同期の処理が絡むことによって順番がややこしくなりがちなコードをpromiseを使って記述していきます。
+
+```
+const promise = new Promise((resolve, reject) => {
+    console.log("即座に表示");
+    setTimeout(() => {
+      console.log("1秒後に表示");
+      resolve('1秒後が成功したお');
+    }, 1000);
+
+})
+.then((val) => {
+  console.log(`then1: ${val}`);
+  return val;
+})
+.catch((val) => {
+  console.log(`catch: ${val}`);
+  return val;
+})
+.then((val) => {
+  console.log(`then2: ${val}`);
+});
+
+// 結果：
+即座に表示
+1秒後に表示
+1秒後が成功したお
+then1:1秒後が成功したお
+then2:1秒後が成功したお
+```
+
+
+参考サイト
+【ES6】 JavaScript初心者でもわかるPromise講座
+https://qiita.com/cheez921/items/41b744e4e002b966391a
+
+参考サイト
+JSON.parse() および JSON.stringify() の使用方法
+https://www.digitalocean.com/community/tutorials/js-json-parse-stringify-ja
+
+すべての最新ブラウザで使用可能なJSON オブジェクトには、JSON 形式のコンテンツを処理するための便利なメソッドであるparseとstringifyの 2 種類があります。JSON.parse() は、JSON 文字列を取得し、JavaScriptオブジェクトに変換します。JSON.stringify() は、JavaScriptオブジェクトを取得し、JSON 文字列に変換します。
+
+```
+const myObj = {
+  name: 'Skip',
+  age: 2,
+  favoriteFood: 'Steak'
+};
+
+const myObjStr = JSON.stringify(myObj);
+
+console.log(myObjStr);
+// "{"name":"Sammy","age":6,"favoriteFood":"Tofu"}"
+
+console.log(JSON.parse(myObjStr));
+// Object {name:"Sammy",age:6,favoriteFood:"Tofu"}
+```
+
+参考サイト
+これでXMLHttpRequestが理解できる
+https://reffect.co.jp/html/xmlhttprequest-basic#i-4
+
+
+
+【PHP】JSONでPOSTされた値の取り出し方。file_get_contents("php://input") するようだ。
+https://qiita.com/hidepy/items/42220523cb2b3eb2c451
+
+```
+// POSTされたJSON文字列を取り出し
+$json = file_get_contents("php://input");
+
+// JSON文字列をobjectに変換
+//   ⇒ 第2引数をtrueにしないとハマるので注意
+$contents = json_decode($json, true);
+
+// デバッグ用にダンプ
+var_dump($contents);
+```
 

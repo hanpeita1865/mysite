@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>近畿職業能力開発大学校 お知らせ管理ツール 入力画面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/6.0/a4b94adbcbff24406a11ec647abba536/css/font-awesome-4_5_0-min.css">
+<link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/6.0/a4b94adbcbff24406a11ec647abba536/css/pure-min.css">
+    <link rel="stylesheet" href="//lcns2.sugutsukaeru.jp/c803d429b782f84/6.0/a4b94adbcbff24406a11ec647abba536/css/pure-grids-responsive-min.css">
+<!-- <link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-admin.css"> -->
+<link rel="stylesheet" href="../../sugu_cms/sugu_common/parts/css/sugu-admin.css">
+<!--リッチテキストエディタ用-->
+<!-- <link rel="stylesheet" type="text/css" href="../../sugu_cms/sugu_common/parts/css/jquery-cleditor.css">
+<link rel="stylesheet" type="text/css" href="../../sugu_cms/sugu_common/parts/css/sugu-cleditor.css"> -->
+
+
+<!-- <link rel="stylesheet" href="%_relative_web_dir_%parts/css/sugu-219-new-icon.css"> -->
+<link rel="stylesheet" href="../../sugu_cms/sugu_common/parts/css/sugu-219-new-icon.css">
+
+<style type="text/css">
+	.link2subpanel:after {
+		content: "画像とファイル ->";
+	}
+</style>
+</head>
+
+<body onload="hide_format();">
+<div class="pure-g">
+<div class="pure-u-1 sugu-container">
+	<h1> お知らせ管理ツール 入力画面</h1>
+	<h2>%_mode_title_%</h2>
+<form class="pure-form" action="%_myname_%" method="post" enctype="multipart/form-data" id="mainform">
+<input type="submit" onclick="return set_order('filelist');" style="display: none;">
+<input type="hidden" name="s" value="3">
+<input type="hidden" name="t" value="">
+<input type="hidden" name="m" value="%_m_%">
+<input type="hidden" name="d" value="%_d_%">
+<input type="hidden" name="cd" value="%_cd_%">
+<input type="hidden" name="n" value="%_n_%">
+<input type="hidden" name="i" value="%_i_%">
+<input type="hidden" name="tempdir" value="%_tempdir_%">
+<input type="hidden" name="file_order" value="%_file_order_%">
+<noscript><p class="msg_error">JavaScriptを有効にして下さい。</p></noscript>
+<p>
+%_msg_instruct_%
+</p>
+
+<ol class="sugu-progress">
+	<li class="sugu-step sugu-step-active">%_mode01_%</li>
+	<li class="sugu-step">%_mode_confirm_%</li>
+	<li class="sugu-step">%_mode_complete_%</li>
+</ol>
+
+<!-- basic items -->
+<fieldset>
+<legend>基本項目</legend>
+
+	<!-- 日付 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="yyyy">日付 <span class="sugu-required">(必須)</span></label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<input type="text" name="yyyy" id="yyyy" value="%_yyyy_%" maxlength="4" class="imeon sugu-input-small">年
+			<input type="text" name="mm" id="mm" value="%_mm_%" maxlength="2" class="noime sugu-input-mini">月
+			<input type="text" name="dd" id="dd" value="%_dd_%" maxlength="2" class="noime sugu-input-mini">日
+			<div class="pure-form-message-inline">（半角。年は西暦 4 桁。）</div>
+		</div>
+	</div>
+
+	<!-- タイトル -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="subject">タイトル <span class="sugu-required">(必須)</span></label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<input type="text" name="subject" id="subject" value="%_subject_%" maxlength="100" class="imeon pure-input-1">
+		</div>
+	</div>
+
+	<!-- アイコン -->
+	<!-- <div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="linetext1">アイコン</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<input type="text" name="linetext1" id="linetext1" value="%_linetext1_%" class="imeauto pure-input-1-4">
+			<div class="">
+				[<a href="javascript: set_value('linetext1', 'new', '')">NEW</a>]
+				[<a href="javascript: set_value('linetext1', '', '')">なし(削除)</a>]
+			</div>
+		</div>
+	</div> -->
+
+	<!-- カテゴリー名 -->
+	<div class="pure-g sugu-control-group" id="sugu-t-area-linetext3">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="linetext3">カテゴリー名</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<!-- <input type="text" name="linetext3" id="linetext3" value="%_linetext3_%" class="imeauto pure-input-1"> -->
+			<select name="linetext3" id="linetext3">
+				<option value="">選択してください</option>
+				<option value="お知らせ">お知らせ</option>
+				<option value="入試">入試</option>
+				<option value="イベント">イベント</option>
+				<option value="企業">企業</option>
+			</select>
+			<p class="note">※「お知らせ」「入試」「イベント」「企業」のいずれかを選択してください。</p>
+		</div>
+	</div>
+
+
+	<!-- サマリー -->
+	<div class="pure-g sugu-control-group" style="display: none;">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="summary">サマリー</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<textarea name="summary" id="summary" rows="3" class="imeauto pure-input-1">%_summary_%</textarea>
+		</div>
+	</div>
+
+	<!-- タイトルからリンク -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">タイトルからリンク</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5 pure-g">
+			<!-- 画像/ファイル4 -->
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-5 sugu-label sugu-label-right" for="imagename4">ファイル</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-3-5">
+				<div class="sugu-form-wrapper">
+					%_imagename4_%
+					<div class="sugu-form-wrapper">
+						<b>（新規・変更）</b>
+						<input type="file" name="imagename4" id="imagename4" class="sugu-input-image">
+					</div>
+				</div>
+				<div class="sugu-form-wrapper">
+					<label for="imagetext4">title属性</label> <input type="text" name="imagetext4" id="imagetext4" value="%_imagetext4_%" maxlength="100" class="imeauto pure-input-1-2">
+				</div>
+			</div>
+
+			<!-- URL -->
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-5 sugu-label sugu-label-right" for="linetext2">URL</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-3-5">
+				<input type="text" name="linetext2" id="linetext2" value="%_linetext2_%" class="imeauto pure-input-1">
+				<div class="pure-form-message">
+				どちらか一方のみ指定。
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<!-- admin option -->
+	<fieldset>
+		<legend>記事ページファイル名の設定</legend>
+	
+		<!-- 記事ページファイル名 -->
+		<div class="pure-g sugu-control-group" id="sugu-t-article_filename">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="article_filename">ファイル名</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<input type="text" name="article_filename" id="article_filename" value="%_article_filename_%" class="imeauto pure-input-1">
+				<div class="">
+					<!-- [<a href="javascript: set_value('article_filename', '', '')">初期設定</a>]
+					[<a href="javascript: set_value('article_filename', '.none', '')">記事ページなし</a>]
+					<br>テンプレート: 
+					[<a href="javascript: set_value('article_filename', '&#x25;_yyyy_&#x25;', 1)" id="sugu-t-template-js-yyyy">年</a>]
+					[<a href="javascript: set_value('article_filename', '&#x25;_mm_&#x25;', 1)" id="sugu-t-template-js-mm">月</a>]
+					[<a href="javascript: set_value('article_filename', '&#x25;_dd_&#x25;', 1)" id="sugu-t-template-js-dd">日</a>]
+					[<a href="javascript: set_value('article_filename', '&#x25;_d_&#x25;', 1)" id="sugu-t-template-js-id">番号</a>]
+					[<a href="javascript: set_value('article_filename', '.html', 1)" id="sugu-t-template-js-ext">.html</a>] -->
+					<!-- 
+					記事ページの生成をする場合に、個別に記事ファイル名を指定する事ができます。
+					空欄にすると $conf{article_filename} で指定した初期設定の形式になります。
+					「.none」という固定値を指定すると、その記事については記事ファイルを作成しません。
+					初期設定のテンプレートでは、クリックでこれらが入力できるようになっています。
+	
+					日本語を含む固定のファイル名が指定できる他、以下のテンプレート変数が使えます。
+					%_d_%        記事の管理用連番
+					%_yyyy_%     記事の年（入力された値。以下同様。）
+					%_mm_%     　記事の月
+					%_dd_%       記事の日
+	
+					ファイル名の指定機能が不要な場合はこの項目をテンプレートから削除して下さい。
+					-->
+				</div>
+			</div>
+		</div>
+	</fieldset>
+
+	<!-- 記事内容 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="body">記事内容 <span class="sugu-required">(必須)</span></label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<!-- <INPUT name="body" type="hidden" value="."> -->
+			<!-- <textarea name="body" id="body" rows="10" class="imeauto wysiwyg-area pure-input-1 rightclickmenu-area">%_body_%</textarea> -->
+			<textarea name="body" id="body" rows="10" class="imeauto wysiwyg-area pure-input-1 rightclickmenu-area">
+				<figure class="image">
+					<img class="image-style-align-left" src="https://ckeditor.com/docs/ckeditor5/latest/assets/img/Chris_Hadfield_30_April_2013_200.jpg" alt="Chris" />
+				</figure>
+			</textarea>
+			<div class="pure-form-message hidden">
+				<!-- input format begin -->
+				<div class="link2show" id="link2show"><a href="javascript:show_format()">よく使うタグ</a></div>
+				<div class="link2hide" id="link2hide">下表からコピーして使って下さい。<a href="javascript:hide_format()">隠す</a></div>
+				<div class="" id="inputformat">
+					<table class="pure-table pure-table-bordered sugu-table-condensed">
+						<tbody>
+							<tr>
+								<th>リンク（同じウィンドウ）</th>
+								<td><input type="text" class="pure-input-1" value="{{{&lt;a href=&quot;■URL■&quot; target=&quot;_top&quot;&gt;●リンクテキスト●&lt;/a&gt;}}}" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>リンク（別ウィンドウ）</th>
+								<td><input type="text" class="pure-input-1" value="{{{&lt;a href=&quot;■URL■&quot; target=&quot;_blank&quot;&gt;●リンクテキスト●&lt;/a&gt;}}}" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>太字</th>
+								<td><input type="text" class="pure-input-1" value="{{{&lt;b&gt;●太字テキスト●&lt;/b&gt;}}}" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>赤太字</th>
+								<td><input type="text" class="pure-input-1" value="{{{&lt;b style=&quot;color: red;&quot;&gt;●赤太字テキスト●&lt;/b&gt;}}}" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>大見出し(h2)</th>
+								<td><input type="text" class="pure-input-1" value="{大見出し}" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>中見出し(h3)</th>
+								<td><input type="text" class="pure-input-1" value="[中見出し]" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>小見出し(h4)</th>
+								<td><input type="text" class="pure-input-1" value="(小見出し)" onfocus="this.select();" onclick="this.select();"></td>
+							</tr>
+							<tr>
+								<th>HTMLタグ（動画/広告）</th>
+								<td>
+									<input type="text" class="pure-input-1" value="{{{HTMLコード入力}}}" onfocus="this.select();" onclick="this.select();">
+									<div class="pure-form-message">中カッコ3つ（ {{{ と }}} ）で囲うとHTMLコードが有効になります。</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- input format end -->
+			</div><!-- /pure-form-message -->
+		</div>
+	</div>
+
+</fieldset>
+
+<!-- files and images -->
+<fieldset>
+<legend>ファイルと画像</legend>
+
+
+	<!-- 画像/ファイル1 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="imagename1">画像1</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<div class="pure-form-message">
+				新しいファイルを添付すると、既存のファイルは削除されます。<br>
+				画像の説明は画像ファイルが添付されている時のみ有効です。
+			</div>
+			<div class="sugu-form-wrapper">
+				%_imagename1_%
+				<div class="sugu-form-wrapper">
+					<b>（新規・変更）</b>
+					<input type="file" name="imagename1" id="imagename1" class="sugu-input-image">
+					<input type="button" value="リセット" class="reset-thumb"><label>（登録している画像に戻します）</label>
+				</div>
+			</div>
+			<div class="sugu-form-wrapper">
+				<label for="imagetext1">画像の説明</label> <input type="text" name="imagetext1" id="imagetext1" value="%_imagetext1_%" maxlength="100" class="imeauto pure-input-1-2">
+			</div>
+			<button type="submit" class="pure-button sugu-button-small"  onclick="return prepare_order4upload();">先にアップロード（本文内に挿入）</button>
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル2 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="imagename2">画像2</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<div class="sugu-form-wrapper">
+				%_imagename2_%
+				<div class="sugu-form-wrapper">
+					<b>（新規・変更）</b>
+					<input type="file" name="imagename2" id="imagename2" class="sugu-input-image">
+					<input type="button" value="リセット" class="reset-thumb"><label>（登録している画像に戻します）</label>
+				</div>
+			</div>
+			<div class="sugu-form-wrapper">
+				<label for="imagetext2">画像の説明</label> <input type="text" name="imagetext2" id="imagetext2" value="%_imagetext2_%" maxlength="100" class="imeauto pure-input-1-2">
+			</div>
+			<button type="submit" class="pure-button sugu-button-small"  onclick="return prepare_order4upload();">先にアップロード（本文内に挿入）</button>
+		</div>
+	</div>
+
+
+	<!-- 画像/ファイル3 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="imagename3">画像3</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<div class="sugu-form-wrapper">
+				%_imagename3_%
+				<div class="sugu-form-wrapper">
+					<b>（新規・変更）</b>
+					<input type="file" name="imagename3" id="imagename3" class="sugu-input-image">
+					<input type="button" value="リセット" class="reset-thumb"><label>（登録している画像に戻します）</label>
+				</div>
+			</div>
+			<div class="sugu-form-wrapper">
+				<label for="imagetext3">画像の説明</label> <input type="text" name="imagetext3" id="imagetext3" value="%_imagetext3_%" maxlength="100" class="imeauto pure-input-1-2">
+			</div>
+			<button type="submit" class="pure-button sugu-button-small"  onclick="return prepare_order4upload();">先にアップロード（本文内に挿入）</button>
+		</div>
+	</div>
+
+	<!-- 画像/ファイル4 -->
+	<!-- タイトルの画像用リンクに使用 -->
+
+
+	<!-- 画像/ファイル5 -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="imagename5">画像5</label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<div class="sugu-form-wrapper">
+				%_imagename5_%
+				<div class="sugu-form-wrapper">
+					<b>（新規・変更）</b>
+					<input type="file" name="imagename5" id="imagename5" class="sugu-input-image">
+					<input type="button" value="リセット" class="reset-thumb"><label>（登録している画像に戻します）</label>
+				</div>
+			</div>
+			<div class="sugu-form-wrapper">
+				<label for="imagetext5">画像の説明</label> <input type="text" name="imagetext5" id="imagetext5" value="%_imagetext5_%" maxlength="100" class="imeauto pure-input-1-2">
+			</div>
+			<button type="submit" class="pure-button sugu-button-small"  onclick="return prepare_order4upload();">先にアップロード（本文内に挿入）</button>
+		</div>
+	</div>
+
+
+
+	<!-- 添付ファイル -->
+	<div class="pure-g sugu-control-group">
+		<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right">添付ファイル（画像ファイルも可能）<span class="attfile-label">※こちらで一度アップロードしたファイルは、削除はできますが変更はできません。</span></label>
+		<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+			<div class="pure-form-message">リンクテキストを省略するとファイル名でリンク</div>
+			<!-- file list table begin -->
+			<div class="sugu-filetable" id="filelist">
+			<!-- current file list : generate from 2_current_file_list.txt -->
+			%_current_file_list_%
+
+			<!-- new file list : generate from 2_new_file_list.txt -->
+			%_new_file_list_%
+
+			</div>
+			<!-- file list table end -->
+			<button type="submit" class="pure-button sugu-button-small"  onclick="return prepare_order4upload();">先にアップロード（本文内に挿入）</button>
+		</div>
+	</div>
+
+</fieldset>
+
+<!-- custom fields -->
+<fieldset>
+	<!-- <legend>カスタム項目</legend> -->
+		<!-- 1行項目名-1 はアイコンに使用 -->
+		<!-- 1行項目名-2 はURL指定に使用 -->
+		<!-- 1行項目名-3 は記事タグ名に使用-->
+	
+		<!-- 1行項目名-4 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-linetext4">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="linetext4">1行項目名-4</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<input type="text" name="linetext4" id="linetext4" value="%_linetext4_%" class="imeauto pure-input-1">
+			</div>
+		</div> -->
+	
+	
+		<!-- 1行項目名-5 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-linetext5">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="linetext5">1行項目名-5</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<input type="text" name="linetext5" id="linetext5" value="%_linetext5_%" class="imeauto pure-input-1">
+			</div>
+		</div> -->
+	
+	
+		<!-- 複数行項目名-1 -->
+		<!-- <div class="pure-g sugu-control-group"  id="sugu-t-area-blocktext1">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="blocktext1">複数行項目名-1</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<textarea name="blocktext1" id="blocktext1" rows="3" class="imeauto pure-input-1 rightclickmenu-area">%_blocktext1_%</textarea>
+			</div>
+		</div> -->
+	
+	
+		<!-- 複数行項目名-2 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-blocktext2">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="blocktext2">複数行項目名-2</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<textarea name="blocktext2" id="blocktext2" rows="3" class="imeauto pure-input-1 rightclickmenu-area">%_blocktext2_%</textarea>
+			</div>
+		</div> -->
+	
+	
+		<!-- 複数行項目名-3 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-blocktext3">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="blocktext3">複数行項目名-3</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<textarea name="blocktext3" id="blocktext3" rows="3" class="imeauto pure-input-1 rightclickmenu-area">%_blocktext3_%</textarea>
+			</div>
+		</div> -->
+	
+	
+		<!-- 複数行項目名-4 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-blocktext4">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="blocktext4">複数行項目名-4</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<textarea name="blocktext4" id="blocktext4" rows="3" class="imeauto pure-input-1 rightclickmenu-area">%_blocktext4_%</textarea>
+			</div>
+		</div> -->
+	
+	
+		<!-- 複数行項目名-5 -->
+		<!-- <div class="pure-g sugu-control-group" id="sugu-t-area-blocktext5">
+			<label class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-5 sugu-label sugu-label-right" for="blocktext5">複数行項目名-5</label>
+			<div class="pure-u pure-u-1 pure-u-sm-1 pure-u-md-2-3 pure-u-lg-3-4 pure-u-xl-3-5">
+				<textarea name="blocktext5" id="blocktext5" rows="3" class="imeauto pure-input-1 rightclickmenu-area">%_blocktext5_%</textarea>
+			</div>
+		</div> -->
+	
+	</fieldset>
+	
+	
+	
+	<div>
+		<button type="submit" class="pure-button pure-button-primary" onclick="return set_order('filelist');" style="margin-top: 0;">確認画面へ</button>
+		<button type="button" class="pure-button sugu-pull-right sugu-button-link" onclick="window.location='%_myname_%?n=%_n_%&amp;i=%_i_%'">中止（一覧に戻る）</button>
+	</div>
+	
+	</form>
+
+</div><!-- /pure-u -->
+</div><!-- /pure-g -->
+
+<div id="panels">
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" src="%_relative_web_dir_%parts/js/sugu-admin.js" charset="utf-8"></script> -->
+<script type="text/javascript" src="../../sugu_cms/sugu_common/parts/js/sugu-admin.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="//lcns2.sugutsukaeru.jp/26303ec1ce859dc/4.7/65fcd604a07352712be0267ca2b0277a/rightclick2tag.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="../../sugu_cms/sugu_common/parts/js/jquery-cleditor.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../sugu_cms/sugu_common/parts/js/jquery-cleditor-advancedtable.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../sugu_cms/sugu_common/parts/js/jquery-cleditor-sugu-image.js" charset="utf-8"></script> -->
+<!--SKEditor用-->
+<script src="https://unpkg.com/ckeditor5/build/ckeditor5-dll.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-editor-classic/build/editor-classic.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-essentials/build/essentials.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-adapter-ckfinder/build/adapter-ckfinder.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-autoformat/build/autoformat.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-basic-styles/build/basic-styles.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-block-quote/build/block-quote.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-ckfinder/build/ckfinder.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-easy-image/build/easy-image.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-heading/build/heading.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-image/build/image.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-indent/build/indent.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-link/build/link.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-list/build/list.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-media-embed/build/media-embed.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-paste-from-office/build/paste-from-office.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-table/build/table.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-cloud-services/build/cloud-services.js"></script>
+<script src="https://unpkg.com/@ckeditor/ckeditor5-html-embed/build/html-embed.js"></script>
+<script src="../../sugu_cms/sugu_common/parts/js/skeditor/imageresizebuttons.js"></script><!--追加-->
+<script src="../../sugu_cms/sugu_common/parts/js/skeditor/imageresizeediting.js"></script><!--追加-->
+<script src="../../sugu_cms/sugu_common/parts/js/skeditor/imageresizehandles.js"></script><!--追加-->
+<script src="../../sugu_cms/sugu_common/parts/js/skeditor/resizeimagecommand.js"></script><!--追加-->
+<script>
+	CKEditor5.editorClassic.ClassicEditor.create( document.querySelector( '.wysiwyg-area' ), {
+		plugins: [
+			CKEditor5.essentials.Essentials,
+			CKEditor5.autoformat.Autoformat,
+			CKEditor5.basicStyles.Bold,
+			CKEditor5.basicStyles.Italic,
+			CKEditor5.basicStyles.Underline,
+			CKEditor5.basicStyles.Code,
+			CKEditor5.blockQuote.BlockQuote,
+			CKEditor5.cloudServices.CloudServices,
+			CKEditor5.heading.Heading,
+			CKEditor5.image.Image,
+			CKEditor5.image.ImageCaption,
+			CKEditor5.image.ImageStyle,
+			CKEditor5.image.ImageToolbar,
+			CKEditor5.image.ImageUpload,
+			CKEditor5.indent.Indent,
+			CKEditor5.link.Link,
+			CKEditor5.list.List,
+			CKEditor5.mediaEmbed.MediaEmbed,
+			CKEditor5.pasteFromOffice.PasteFromOffice,
+			CKEditor5.table.Table,
+			CKEditor5.table.TableCaption,
+			CKEditor5.table.TableProperties,
+			CKEditor5.table.TableCellProperties,
+			CKEditor5.table.TableToolbar,
+			CKEditor5.typing.TextTransformation,
+			CKEditor5.upload.Base64UploadAdapter,
+			CKEditor5.htmlEmbed.HtmlEmbed,
+            CKEditor5.image.ImageResizeEditing,//追加
+            CKEditor5.image.ImageResizeHandles//追加
+
+		],
+		toolbar: {
+			items: [
+				'heading',
+				'|',
+				'htmlEmbed',
+				'|',
+				'bold',
+				'italic',
+				'underline',
+				'code',
+				'link',
+				'bulletedList',
+				'numberedList',
+				'|',
+				'outdent',
+				'indent',
+				'|',
+				'uploadImage',
+				'blockQuote',
+				'insertTable',
+				'mediaEmbed',
+				'undo',
+				'redo'
+			]
+		},
+		image: {
+			toolbar: [
+				'imageStyle:inline',
+				'imageStyle:block',
+				'imageStyle:side',
+				'|',
+				'toggleImageCaption',
+				'imageTextAlternative'
+			]
+		},
+		table: {
+			contentToolbar: [
+				'tableColumn',
+				'tableRow',
+				'mergeTableCells',
+				'|',
+				'tableProperties',
+				'tableCellProperties',
+				'|',
+				'toggleTableCaption'
+			]
+		},
+	} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( error => {
+			console.error( 'There was a problem initializing the editor.', error );
+		} );
+</script>
+<!--SKeditor用ここまで-->
+
+
+
+
+<script type="text/javascript">
+	// $(document).ready(function() {
+	// 	$(".wysiwyg-area").each(function(){
+	// 		var Id = $(this).attr("id");
+	// 		$(this).text($("#"+Id).val().replace(/{{{/g, '').replace(/}}}/g, ''));
+	// 	});
+	// 	$(".wysiwyg-area").cleditor({
+	// 		  useCSS:true, /* なるべくstyle属性を使う */
+	// 		  docCSSFile:"../../sugu_cms/sugu_common/parts/css/sugu-site.css", /* 編集領域に適用するスタイルシート。Bの場合は site.css */
+	// 		  fonts: "Sans-Serif,Serif", /* フォント選択肢 */
+	// 		  bodyStyle: "margin:4px; font-size:1em; cursor:text", /* 入力欄スタイル */
+	// 		  width:"100%", /* 入力欄の幅 */
+	// 		  height:"450px", /* 入力欄の高さ */
+	// 		  styles: /* 段落タグ */
+	// 			[["段落", "<p>"],
+	// 			["Header 2", "<h2>"], ["Header 3", "<h3>"],  ["Header 4","<h4>"],
+	// 			["div", "<div>"],
+	// 			["Header 1", "<h1>"], 
+	// 			["Header 5","<h5>"],
+	// 			["Header 6","<h6>"]]
+	// 		  });
+	// });
+</script>
+<script type="text/javascript">
+var PanelClass = "rightclickmenupanel";    // 右クリックメニューパネル用のDIVのクラス（スタイル指定用）
+var FormId = new Array();
+//右クリックメニューを表示するフィールドにはクラス rightclickmenu-area を指定。
+$('.rightclickmenu-area').each(function(){
+	FormId.push($(this).attr("id"));
+});
+var myTags = new Array;
+/* 【よく使うタグの指定】
+・4行で設定ワンセットです。
+・上から順に表示されます
+・必要な設定を追加、削除、変更して下さい。
+・2行目が右クリックメニューへの表示、3行目が実際に挿入されるコードです。
+・実際に挿入されるコードについては以下のルールがあります。
+
+[挿入コードの記載方法]
+- HTMLタグを使用する場合は全体を {{{ と }}}で囲って下さい。
+- __TEXT__ の位置に操作時に選択していたテキストが挿入されます。
+- シングルクオートは使わないでください。
+- 実際の改行は含めず1行で記載して下さい。
+- 改行を挿入したい位置には「\\n」と記載して下さい。
+- 閉じタグなどで使うスラッシュ（/）は、「\/」と記載して下さい。
+*/
+myTags.push(
+//1件分 ここから
+[
+    '<u style="color: blue;">リンク（同じウィンドウ）<\/u>', //メニューへの表示（タグ可）
+    '{{{<a href="■URL■" target="_top">__TEXT__<\/a>}}}' //実際に挿入されるコード
+],
+//1件分 ここまで
+[
+    '<u style="color: blue;">リンク（別ウィンドウ）<\/u>',
+    '{{{<a href="■URL■" target="_blank">__TEXT__<\/a>}}}'
+],
+[
+    '&lt;p&gt;で囲う',
+    '{{{<p>__TEXT__</p>}}}'
+],
+[
+    '<b>太字<\/b>',
+    '{{{<b>__TEXT__<\/b>}}}'
+],
+[
+    '<b style="color: red;">太赤字<\/b>',
+    '{{{<b style="color: red;">__TEXT__<\/b>}}}'
+],
+[
+    '<h2 style="margin: 0px auto;">大見出し<\/h2>',
+    '{__TEXT__}\\n'
+],
+[
+    '<h3 style="margin: 0px auto;">中見出し<\/h3>',
+    '[__TEXT__]\\n'
+],
+[
+    '<h4 style="margin: 0px auto;">小見出し<\/h4>',
+    '(__TEXT__)\\n'
+],
+[
+    'HTMLタグ（動画/広告）',
+    '{{{__TEXT__}}}'
+]
+);
+
+var myAttachedTags = new Array;
+var ImgTplt = new Array;
+var FileTplt = new Array;
+/* 【画像挿入タグの指定】（画像付製品のみ）
+・記事内容への画像表示のための指定です。
+・「先にアップロード（本文内に挿入）」ボタンでアップロードした後、「記事内容」欄の
+　右クリックメニューから挿入できるようになります。
+・左寄せにする、右寄せにする、拡大画像あり／なし等を必要に応じて指定して下さい。
+・2行目が右クリックメニューへの表示、3行目が実際に挿入されるコードです。
+
+[画像用HTMLタグの記載方法]
+- HTMLタグを使用する場合は全体を {{{ と }}}で囲って下さい。
+- __HREF__ の位置に画像のパスが挿入されます（拡大サイズ）。
+- __THUMB__ の位置にサムネイル画像のパスが挿入されます。
+- __ALT__ の位置に「画像の説明」欄の入力が表示されます。
+- シングルクオートは使わないでください。
+- 実際の改行は含めず1行で記載して下さい。
+- 改行を挿入したい位置には「\\n」と記載して下さい。
+- 閉じタグなどで使うスラッシュ（/）は、「\/」と記載して下さい。
+*/
+
+ImgTplt.push(
+[
+		'<span style="display: inline-block;"><img src="__THUMB__" alt="__ALT__" style="width: 50px;" title="左寄せ"><\/span>',
+		'{{{<a href="__HREF__" target="_blank"><img src="__THUMB__" alt="__ALT__" style="float:left;"><\/a>}}}'
+],
+[
+		'<span style="display: inline-block; width: 100%; text-align: center;"><img src="__THUMB__" alt="__ALT__" style="width: 50px;" title="上下で改行して中央"><\/span>',
+		'\\n{{{<div style="text-align: center;"><a href="__HREF__" target="_blank"><img src="__THUMB__" alt="__ALT__"><\/a><\/div>\\n}}}'
+],
+[
+		'<span style="display: inline-block; width: 100%; text-align: right;"><img src="__THUMB__" alt="__ALT__" style="width: 50px;" title="右寄せ"><\/span>',
+		'{{{<a href="__HREF__" target="_blank"><img src="__THUMB__" alt="__ALT__" style="float:right;"><\/a>}}}'
+]
+);
+/* 【ファイルリンク挿入タグの指定】（画像付製品でファイルをアップロードしている場合と、添付ファイル付製品
+・記事内容のテキストの間にアップロードしたファイルを表示したい場合の設定です。
+・「先にアップロード（本文内に挿入）」ボタンでアップロードした後、「記事内容」欄の
+　右クリックメニューから挿入できるようになります。
+・2行目が右クリックメニューへの表示、3行目が実際に挿入されるコードです。
+
+[ファイルリンク用HTMLタグの記載方法]
+- HTMLタグを使用する場合は全体を {{{ と }}}で囲って下さい。
+- __HREF__ の位置にファイルのパスが挿入されます（拡大サイズ）。
+- __ICON__ の位置に、ファイル拡張子に応じたアイコン表示のためのクラス名（「gif」「png」など）が表示されます。
+- __ALT__ の位置に「リンクテキスト」欄の入力が表示されます。
+- シングルクオートは使わないでください。
+- 実際の改行は含めず1行で記載して下さい。
+- 改行を挿入したい位置には「\\n」と記載して下さい。
+- 閉じタグなどで使うスラッシュ（/）は、「\/」と記載して下さい。
+*/
+
+/*ファイルリンク登録用を画像用に兼用*/
+FileTplt.push(
+[
+	'<span style="display: inline-block;"><img src="__HREF__" alt="__ALT__" style="width: 50px;" title="左寄せ"><\/span>',
+	'{{{<a href="__HREF__" target="_blank"><img src="__HREF__" alt="__ALT__" style="float:left;"><\/a>}}}'
+],
+[
+	'<span style="display: inline-block; width: 100%; text-align: center;"><img src="__HREF__" alt="__ALT__" style="width: 50px;" title="上下で改行して中央"><\/span>',
+	'{{{<div style="text-align: center;"><a href="__HREF__" target="_blank"><img src="__HREF__" alt="__ALT__" style="float:left;"><\/a><\/div>\\n}}}'
+],
+[
+	'<span style="display: inline-block; width: 100%; text-align: right;"><img src="__HREF__" alt="__ALT__" style="width: 50px;" title="右寄せ"><\/span>',
+	'{{{<a href="__HREF__" target="_blank"><img src="__HREF__" alt="__ALT__" style="float:right;"><\/a>}}}'
+],
+[
+	//ファイルリンク用
+	'<u style="color: blue;" class="filelink __ICON__">__ALT__<\/u>',
+	'{{{<a href="__HREF__" target="_blank" class="filelink __ICON__">__ALT__<\/a>}}}'
+]
+);
+
+
+// FileTplt.push(
+// [
+// 		'<u style="color: blue;" class="filelink __ICON__">__ALT__<\/u>',
+// 		'{{{<a href="__HREF__" target="_blank" class="filelink __ICON__">__ALT__<\/a>}}}'
+// ]
+// );
+
+myAttachedTags.push(
+	[
+	    '<span style="display: block; text-align: right; font-size: 0.7em">x<\/span>',
+	    '__TEXT__'
+	]
+);
+$('a[id^="current_image_"][class~="current_image"]').each(function(){
+	var myHref=$(this).attr("href");
+	var myAlt=$(this).attr("title");
+	var thumbSrc=$(this).find("img").first().attr("src");
+	for (i=0; i < ImgTplt.length; i++){
+		myAttachedTags.push(
+			[
+			    ImgTplt[i][0].replace(/__THUMB__/g, thumbSrc).replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref),
+			    ImgTplt[i][1].replace(/__THUMB__/g, thumbSrc).replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref)
+			]
+		);
+	}
+});
+//画像が登録されていたら、クリアのタグも挿入
+if (1<myAttachedTags.length){
+	myTags.push(
+		[
+		    '左右寄せのクリア',
+		    '\\n{{{<div'+' style="clear: both;"></'+'div>}}}\\n'
+		]
+	);
+}
+$('a[id^="current_image_"][class~="current_file"]').each(function(){
+	var myHref=encodeURI($(this).attr("href"));
+	var myAlt=$(this).attr("title");
+	var myClass=$(this).attr("class").replace(/\s*current_file\s*/, "").replace(/\s*filelink\s*/, "");
+	for (i=0; i < FileTplt.length; i++){
+		myAttachedTags.push(
+			[
+			    FileTplt[i][0].replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref).replace(/__ICON__/g, myClass),
+			    FileTplt[i][1].replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref).replace(/__ICON__/g, myClass)
+			]
+		);
+	}
+});
+$('a[id^="current_file_"]').each(function(){
+	var myHref=encodeURI($(this).attr("href"));
+	var myAlt=$(this).attr("title");
+	var myClass=$(this).attr("class").replace(/\s*current_file\s*/, "").replace(/\s*filelink\s*/, "");
+	for (i=0; i < FileTplt.length; i++){
+		myAttachedTags.push(
+			[
+			    FileTplt[i][0].replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref).replace(/__ICON__/g, myClass),
+			    FileTplt[i][1].replace(/__ALT__/g, myAlt).replace(/__HREF__/g, myHref).replace(/__ICON__/g, myClass)
+			]
+		);
+	}
+});
+
+/* 【タッチデバイスの対応】（通常は変更の必要ありません）
+iPhone や iPad などのタッチデバイスでは、右クリックメニューを開くための長押しが、
+ブラウザの初期設定の機能(選択/コピー/...)と競合するために、右クリックメニューの表示が入力を邪魔する事があります。
+以下は、右クリックパネルを無効にするためのエントリです。
+「'__ENABLE_USER_SELECT__'」の行は変更しないで下さい。
+*/
+var myUI = navigator.userAgent.toLowerCase();
+if ( myUI.indexOf('iphone') > 0 || myUI.indexOf('ipad') > 0 || myUI.indexOf('ipod') > 0 || myUI.indexOf('android') > 0) {
+myTags.unshift(
+	[
+	    '<span style="display: block; text-align: right;">再読み込みするまで隠す<\/span>',
+	    '__ENABLE_USER_SELECT__'
+	]
+);
+}
+
+
+//閉じるボタン
+myTags.unshift(
+	[
+	    '<span style="display: block; text-align: right; font-size: 0.7em">x<\/span>',
+	    '__TEXT__'
+	]
+);
+var i;
+var ParentPanel = document.getElementById("panels");
+for (i=0; i< FormId.length; i++){
+	if (document.getElementById(FormId[i])){
+		makeTaglist(ParentPanel,FormId[i],PanelClass,myTags);
+		if (1<myAttachedTags.length){
+			makeAttachedItemsTaglist(ParentPanel,FormId[i],PanelClass,myAttachedTags);
+		}
+	}
+}
+
+function set_value(MyName, MyItem, IfAppend){
+    var FM = document.forms[0];
+    switch(IfAppend){
+        case 1: //追記
+            eval("FM."+MyName+".value += '"+MyItem+"'");
+            break;
+        default: //入れ替え（初期設定）
+            eval("FM."+MyName+".value = '"+MyItem+"'");
+            break;
+    }
+}
+
+
+
+//サムネイル画像切り替え
+const current_image = document.querySelectorAll('img.current_image');
+let thumbArray = {};//元画像格納用
+
+
+//元画像配列に格納
+current_image.forEach(function(e){
+	thumbArray[e.getAttribute('id')] = e.getAttribute('src');
+});
+
+//ファイルリンク用サムネイル設定 テスト
+document.querySelectorAll('#filelist .filelink').forEach(function(e){
+	let fileHref = e.getAttribute('href');
+	let fileId = e.getAttribute('id');
+
+	let fileHtml = '<img src="' + fileHref + '" alt="" id="'+fileId+'" class="current_image">';
+	e.innerHTML = fileHtml;
+	e.classList.add('sugu-image-preview','pure-u-md-1-4');
+
+	//配列に登録
+	thumbArray[fileId] = fileHref;
+});
+
+
+
+document.querySelectorAll('.sugu-input-image').forEach(function(elm){
+	elm.addEventListener('change', function(e){
+		let file = e.target.files[0];//Fileオブジェクトを取得
+		let reader = new FileReader(); //オブジェクトを生成
+		let thumb_id = e.target.getAttribute('id').replace('imagename','current_thumbnail_');//サムネイル表示要素id値
+		let a_id = e.target.getAttribute('id').replace('imagename','current_image_');//サムネイルのa要素id値
+
+		if(thumb_id in thumbArray){
+			//元画像登録にある場合
+			reader.onload = (function(file){
+				return function(t){
+					document.getElementById(thumb_id).setAttribute('src', t.target.result);
+				};
+			})(file);
+	
+			reader.readAsDataURL(file);
+
+		}else{
+			//元画像登録にない場合
+			if(e.target.closest('.sugu-form-wrapper').previousElementSibling != null){
+				e.target.closest('.sugu-form-wrapper').previousElementSibling.remove();
+			}
+			
+			reader.onload = (function(file){
+				return function(t){
+					const thumb_html = '<div class="pure-g"><div class="pure-u pure-u-1 pure-u-sm-1-2 pure-u-md-1-4 sugu-image-preview"><a href="" title="" id="'+a_id+'" class="current_image" target="_blank"><img src="'+t.target.result+'" alt="" id="'+thumb_id+'" class="current_image"></a></div></div>'
+					e.target.closest('.sugu-form-wrapper').insertAdjacentHTML('beforebegin',thumb_html);
+				};
+			})(file);
+	
+			reader.readAsDataURL(file);
+		}
+	});
+});
+
+
+
+//ファイルリンク用サムネイル切り替え　テスト
+document.querySelectorAll('.sugu-input-file').forEach(function(elm){
+	elm.addEventListener('change', function(e){
+		let file = e.target.files[0];//Fileオブジェクトを取得
+		let reader = new FileReader(); //オブジェクトを生成
+		let thumb_id = e.target.getAttribute('id').replace('filename','current_new_');//サムネイル表示要素id値
+		//let a_id = e.target.getAttribute('id').replace('filename','current_new_');//サムネイルのa要素id値
+
+		//console.log(thumb_id)
+
+		if(thumb_id in thumbArray){
+			console.log('ある')
+			//元画像登録にある場合
+			// reader.onload = (function(file){
+			// 	return function(t){
+			// 		document.getElementById(thumb_id).setAttribute('src', t.target.result);
+			// 	};
+			// })(file);
+	
+			// reader.readAsDataURL(file);
+
+		}else{
+			//元画像登録にない場合
+			console.log('ない')
+			//console.log(e.target.closest('.sugu-clearfix').firstElementChild.classList.contains('sugu-image-preview'))
+
+			if(e.target.closest('.sugu-clearfix').firstElementChild.classList.contains('sugu-image-preview')){
+				//e.target.closest('.sugu-clearfix').firstElementChild.remove();
+				reader.onload = (function(file){
+					return function(t){
+						console.log(t.target.result)
+						document.getElementById(thumb_id).setAttribute('src', t.target.result);
+					};
+				})(file);
+		
+				reader.readAsDataURL(file);
+
+			}else{
+				//新規にサムネイルを表示
+				reader.onload = (function(file){
+					return function(t){
+						const thumb_html = '<a href="'+t.target.result+'" class="filelink img sugu-image-preview pure-u-md-1-4" title="" target="_blank"><img src="'+t.target.result+'" alt="" id="'+thumb_id+'" class="current_image"></a>';
+
+						e.target.closest('.sugu-clearfix').insertAdjacentHTML('afterbegin',thumb_html);
+					};
+				})(file);
+		
+				reader.readAsDataURL(file);
+			}
+			
+		}
+	})
+});
+
+
+//画像選択リセット
+document.querySelectorAll('.reset-thumb').forEach(function(elm){
+	elm.addEventListener('click', function(e){
+		const input_id = e.target.previousElementSibling.getAttribute('id');//inputタグのid値
+		const thumb_id = input_id.replace('imagename','current_thumbnail_');//サムネイル表示要素のid値
+
+		if(thumb_id in thumbArray){
+			//元画像登録にある場合
+			document.getElementById(thumb_id).setAttribute('src', thumbArray[thumb_id]);
+		}else{
+			// 〃 にない場合
+			document.getElementById(thumb_id).setAttribute('src', '');
+			e.target.closest('.sugu-form-wrapper').previousElementSibling.remove();
+			
+		}
+		
+		document.getElementById(input_id).value = '';
+	});
+});
+
+//カテゴリーセレクトボックス設定
+ArrayCate = {'':0,'お知らせ':1,'入試':2,'イベント':3,'企業':4}
+document.getElementById('linetext3').options[ArrayCate["%_linetext3_%"]].selected = true;
+</script>
+</body>
+</html>
